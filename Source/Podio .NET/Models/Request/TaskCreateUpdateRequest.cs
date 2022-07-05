@@ -37,7 +37,7 @@ namespace PodioAPI.Models.Request
                     DueTimeInternal = value.Value.Date.ToString("yyyy-MM-dd");
                     if (value.Value.TimeOfDay != default(TimeSpan))
                     {
-                        this.DueTime = value.Value.ToString("HH:mm");
+                        this.DueTime = value.Value.ToString("HH':'mm");
                     }
                 }
             }

@@ -560,10 +560,10 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="fieldId"></param>
         /// <returns></returns>
-        public async Task<Range> GetFieldRanges(int fieldId)
+        public async Task<Models.Range> GetFieldRanges(int fieldId)
         {
             string url = string.Format("/item/field/{0}/range", fieldId);
-            return await _podio.Get<Range>(url);
+            return await _podio.Get<Models.Range>(url);
         }
 
 

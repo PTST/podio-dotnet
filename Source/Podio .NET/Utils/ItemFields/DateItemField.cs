@@ -104,7 +104,7 @@ namespace PodioAPI.Utils.ItemFields
             string stringValue = null;
             if (value != null)
             {
-                stringValue = String.Format("{0:yyyy-MM-dd HH:mm:ss}", value);
+                stringValue = String.Format("{0:yyyy-MM-dd HH':'mm':'ss}", value);
             }
             this.Values.First()[attribute] = stringValue;
         }
