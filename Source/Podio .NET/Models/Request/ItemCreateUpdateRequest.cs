@@ -13,7 +13,7 @@ namespace PodioAPI.Models.Request
         ///     Only used for update item
         /// </summary>
         [JsonProperty(PropertyName = "revision", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Revision { get; set; }
+        public long? Revision { get; set; }
 
         [JsonProperty(PropertyName = "fields", NullValueHandling = NullValueHandling.Ignore)]
         public JArray Fields { get; set; }
@@ -22,7 +22,7 @@ namespace PodioAPI.Models.Request
         public List<string> Tags { get; set; }
 
         [JsonProperty(PropertyName = "file_ids", NullValueHandling = NullValueHandling.Ignore)]
-        public List<int> FileIds { get; set; }
+        public List<long> FileIds { get; set; }
 
         [JsonProperty(PropertyName = "reminder", NullValueHandling = NullValueHandling.Ignore)]
         public Reminder Reminder { get; set; }
@@ -31,7 +31,7 @@ namespace PodioAPI.Models.Request
         public Recurrence Recurrence { get; set; }
 
         [JsonProperty(PropertyName = "linked_account_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? LinkedAccountId { get; set; }
+        public long? LinkedAccountId { get; set; }
 
         [JsonProperty(PropertyName = "ref", NullValueHandling = NullValueHandling.Ignore)]
         public Reference Ref { get; set; }
@@ -40,6 +40,6 @@ namespace PodioAPI.Models.Request
         /// To use with the Platform API
         /// </summary>
         [JsonProperty(PropertyName = "space_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? SpaceId { get; set; }
+        public long? SpaceId { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace PodioAPI.Models
         public bool? Employee { get; set; }
 
         [JsonProperty(PropertyName = "space_memberships")]
-        public int? SpaceMemberships { get; set; }
+        public long? SpaceMemberships { get; set; }
 
         [JsonProperty(PropertyName = "user")]
         public User User { get; set; }

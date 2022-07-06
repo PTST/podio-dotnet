@@ -26,7 +26,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["type"] = value;
+                this.internalConfig.Settings["type"] = value;
             }
         }
     }

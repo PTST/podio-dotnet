@@ -6,7 +6,7 @@ namespace PodioAPI.Models
     public class Hook
     {
         [JsonProperty("hook_id")]
-        public int HookId { get; set; }
+        public long HookId { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }

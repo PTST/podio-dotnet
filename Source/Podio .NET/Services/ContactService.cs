@@ -23,11 +23,11 @@ namespace PodioAPI.Services
         /// <param name="spaceId"></param>
         /// <param name="contact"></param>
         /// <returns>profile_id of the created contact</returns>
-        public async Task<int> CreateContact(int spaceId, Contact contact)
+        public async Task<long> CreateContact(long spaceId, Contact contact)
         {
             string url = string.Format("/contact/space/{0}/", spaceId);
             dynamic response = await  _podio.Post<dynamic>(url, contact);
-            return (int) response["profile_id"];
+            return (long) response["profile_id"];
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="profileId"></param>
         /// <param name="contact"></param>
-        public async Task<dynamic> UpdateContact(int profileId, Contact contact)
+        public async Task<dynamic> UpdateContact(long profileId, Contact contact)
         {
             string url = string.Format("/contact/{0}", profileId);
             return await _podio.Put<dynamic>(url, contact);
@@ -47,7 +47,7 @@ namespace PodioAPI.Services
         ///     <para>Podio API Reference: https://developers.podio.com/doc/contacts/delete-contact-s-60560 </para>
         /// </summary>
         /// <param name="profileIds"></param>
-        public async Task<dynamic> DeleteContacts(int[] profileIds)
+        public async Task<dynamic> DeleteContacts(long[] profileIds)
         {
             string profileIdCSV = Utility.ArrayToCSV(profileIds);
             string url = string.Format("/contact/{0}", profileIdCSV);
@@ -72,7 +72,7 @@ namespace PodioAPI.Services
         /// <param name="text"></param>
         /// <param name="limit"></param>
         /// <returns></returns>
-        public async Task<List<string>> GetSkills(string text, int limit = 12)
+        public async Task<List<string>> GetSkills(string text, long limit = 12)
         {
             var requestData = new Dictionary<string, string>()
             {
@@ -89,11 +89,11 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="SpaceId"></param>
         /// <returns></returns>
-        public async Task<int> GetSpaceContactTotals(int SpaceId)
+        public async Task<long> GetSpaceContactTotals(long SpaceId)
         {
             string url = string.Format("/contact/space/{0}/totals/space", SpaceId);
             dynamic response = await  _podio.Get<dynamic>(url);
-            return (int) response["total"];
+            return (long) response["total"];
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<Contact> GetUserContact(int userId)
+        public async Task<Contact> GetUserContact(long userId)
         {
             string url = string.Format("/contact/user/{0}", userId);
             return await  _podio.Get<Contact>(url);
@@ -114,7 +114,7 @@ namespace PodioAPI.Services
         /// <param name="profileIds"></param>
         /// <param name="spaceId">If set the role and removable property will be set in the context of the given space.</param>
         /// <returns></returns>
-        public async Task<List<Contact>> GetContactsByProfileId(int[] profileIds, int? spaceId = null)
+        public async Task<List<Contact>> GetContactsByProfileId(long[] profileIds, long? spaceId = null)
         {
             string profileIdCSV = Utility.ArrayToCSV(profileIds);
             string url = string.Format("/contact/{0}/v2", profileIdCSV);
@@ -156,7 +156,7 @@ namespace PodioAPI.Services
         /// <param name="type">Determines the way the result is returned. Valid options are "mini" and "full". Default value: mini</param>
         /// <returns></returns>
         public async Task<List<Contact>> GetAllContacts(Dictionary<string, string> fields = null, string contactType = "user",
-            string externalId = null, int? limit = null, int? offset = null, string required = null,
+            string externalId = null, long? limit = null, long? offset = null, string required = null,
             bool excludeSelf = true, string order = "name", string type = "mini")
         {
             string url = "/contact/";
@@ -206,8 +206,8 @@ namespace PodioAPI.Services
         /// </param>
         /// <param name="type">Determines the way the result is returned. Valid options are "mini" and "full". Default value: mini</param>
         /// <returns></returns>
-        public async Task<List<Contact>> GetOrganizationContacts(int orgId, Dictionary<string, string> fields = null,
-            string contactType = "user", string externalId = null, int? limit = null, int? offset = null,
+        public async Task<List<Contact>> GetOrganizationContacts(long orgId, Dictionary<string, string> fields = null,
+            string contactType = "user", string externalId = null, long? limit = null, long? offset = null,
             string required = null, bool excludeSelf = true, string order = "name", string type = "mini")
         {
             string url = string.Format("/contact/org/{0}", orgId);
@@ -257,8 +257,8 @@ namespace PodioAPI.Services
         /// </param>
         /// <param name="type">Determines the way the result is returned. Valid options are "mini" and "full". Default value: mini</param>
         /// <returns></returns>
-        public async Task<List<Contact>> GetSpaceContacts(int spaceId, Dictionary<string, string> fields = null,
-            string contactType = "user", string externalId = null, int? limit = null, int? offset = null,
+        public async Task<List<Contact>> GetSpaceContacts(long spaceId, Dictionary<string, string> fields = null,
+            string contactType = "user", string externalId = null, long? limit = null, long? offset = null,
             string required = null, bool excludeSelf = true, string order = "name", string type = "mini")
         {
             string url = string.Format("/contact/space/{0}/", spaceId);
@@ -296,8 +296,8 @@ namespace PodioAPI.Services
         ///     Default value: name
         /// </param>
         /// <returns></returns>
-        public async Task<List<Contact>> GetSpaceContactsOnApp(int appId, Dictionary<string, string> fields = null,
-            int? limit = null, int? offset = null, string order = "name")
+        public async Task<List<Contact>> GetSpaceContactsOnApp(long appId, Dictionary<string, string> fields = null,
+            long? limit = null, long? offset = null, string order = "name")
         {
             string url = string.Format("/contact/app/{0}/", appId);
             var requestData = new Dictionary<string, string>();
@@ -323,7 +323,7 @@ namespace PodioAPI.Services
         /// <param name="userId"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public async Task<List<string>> GetUserContactField(int userId, string key)
+        public async Task<List<string>> GetUserContactField(long userId, string key)
         {
             string url = string.Format("/contact/user/{0}/{1}", userId, key);
             return await  _podio.Get<List<string>>(url);
@@ -335,7 +335,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="profileId"></param>
         /// <returns></returns>
-        public async Task<StringResponse> GetvCard(int profileId)
+        public async Task<StringResponse> GetvCard(long profileId)
         {
             string url = string.Format("/contact/{0}/vcard", profileId);
             return await  _podio.Get<StringResponse>(url, returnAsString: true);
@@ -348,7 +348,7 @@ namespace PodioAPI.Services
         /// <param name="profileId"></param>
         /// <param name="key"></param>
         /// <param name="value">The new value for the profile field.</param>
-        public async Task<dynamic> UpdateContactField(int profileId, string key, string value)
+        public async Task<dynamic> UpdateContactField(long profileId, string key, string value)
         {
             string url = string.Format("/contact/{0}/{1}", profileId, key);
             dynamic requestData = new

@@ -6,9 +6,9 @@ namespace PodioAPI.Models
     public class AppMarketShareInstall
     {
         [JsonProperty("app_id")]
-        public int AppId { get; set; }
+        public long AppId { get; set; }
 
         [JsonProperty("child_app_ids")]
-        public List<int> ChildAppIds { get; set; }
+        public List<long> ChildAppIds { get; set; }
     }
 }

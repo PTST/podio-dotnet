@@ -49,9 +49,9 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="type">The type of shares to return, either "app" or "pack", leave out for all shares</param>
         /// <param name="limit">The maximum number of results to return Default value: 6</param>
-        /// <param name="offset">The offset into the returned results Default value: 0</param>
+        /// <param name="offset">The offset longo the returned results Default value: 0</param>
         /// <returns></returns>
-        public async Task<AppMarketShares> GetOwnShares(string type, int limit = 6, int offset = 0)
+        public async Task<AppMarketShares> GetOwnShares(string type, long limit = 6, long offset = 0)
         {
             string url = string.Format("/app_store/{0}/own/", type);
             var requestData = new Dictionary<string, string>()
@@ -83,7 +83,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="shareId"></param>
         /// <returns></returns>
-        public async Task<AppMarketShare> GetShare(int shareId)
+        public async Task<AppMarketShare> GetShare(long shareId)
         {
             string url = string.Format("/app_store/{0}/v2", shareId);
             return await _podio.Get<AppMarketShare>(url);
@@ -97,7 +97,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <returns></returns>
-        public async Task<List<AppMarketShare>> GetShareByReference(string refType, int refId)
+        public async Task<List<AppMarketShare>> GetShareByReference(string refType, long refId)
         {
             string url = string.Format("/app_store/{0}/{1}/", refType, refId);
             return await _podio.Get<List<AppMarketShare>>(url);
@@ -110,13 +110,13 @@ namespace PodioAPI.Services
         /// <param name="type"></param>
         /// <param name="userId"></param>
         /// <param name="limit">The maximum number of results to return Default value: 6</param>
-        /// <param name="offset">The offset into the returned results Default value :0</param>
+        /// <param name="offset">The offset longo the returned results Default value :0</param>
         /// <param name="sort">
         ///     The sorting of the shares, either "install", "rating", "popularity", "recommended", "shared_on", or
         ///     "name".Default value: install
         /// </param>
         /// <returns></returns>
-        public async Task<AppMarketShares> GetSharesByAuthor(string type, int userId, int limit = 6, int offset = 0,
+        public async Task<AppMarketShares> GetSharesByAuthor(string type, long userId, long limit = 6, long offset = 0,
             string sort = "install")
         {
             string url = string.Format("/app_store/{0}/author/{1}/", type, userId);
@@ -137,13 +137,13 @@ namespace PodioAPI.Services
         /// <param name="type"></param>
         /// <param name="categoryId"></param>
         /// <param name="limit">The maximum number of results to return Default value: 6</param>
-        /// <param name="offset">The offset into the returned results Default value :0</param>
+        /// <param name="offset">The offset longo the returned results Default value :0</param>
         /// <param name="sort">
         ///     The sorting of the shares, either "install", "rating", "popularity", "recommended", "shared_on", or
         ///     "name".Default value: install
         /// </param>
         /// <returns></returns>
-        public async Task<AppMarketShares> GetSharesByCategory(string type, int categoryId, int limit = 6, int offset = 0,
+        public async Task<AppMarketShares> GetSharesByCategory(string type, long categoryId, long limit = 6, long offset = 0,
             string sort = "install")
         {
             string url = string.Format("/app_store/{0}/category/{1}/", type, categoryId);
@@ -163,9 +163,9 @@ namespace PodioAPI.Services
         /// <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-top-shares-22496 </para>
         /// <param name="type"></param>
         /// <param name="limit">The maximum number of results to return Default value: 6</param>
-        /// <param name="offset">The offset into the returned results Default value :0</param>
+        /// <param name="offset">The offset longo the returned results Default value :0</param>
         /// <returns></returns>
-        public async Task<AppMarketShares> GetTopShares(string type, int limit = 6, int offset = 0)
+        public async Task<AppMarketShares> GetTopShares(string type, long limit = 6, long offset = 0)
         {
             string url = string.Format("/app_store/{0}/top/", type);
             var requestData = new Dictionary<string, string>
@@ -188,7 +188,7 @@ namespace PodioAPI.Services
         ///     specified, all dependencies will be installed
         /// </param>
         /// <returns></returns>
-        public async Task<AppMarketShareInstall> InstallShare(int shareId, int spaceId, List<int> dependentShareIds)
+        public async Task<AppMarketShareInstall> InstallShare(long shareId, long spaceId, List<long> dependentShareIds)
         {
             string url = string.Format("/app_store/{0}/install", shareId);
             dynamic requestData = new
@@ -211,13 +211,13 @@ namespace PodioAPI.Services
         /// <param name="language">The language the app is written in</param>
         /// <param name="categoryId">The ids of the categories the app should be placed in</param>
         /// <param name="fileId">The file ids to use as screenshots for the app</param>
-        /// <param name="videoId">The youtube id of a introduction video, if any</param>
+        /// <param name="videoId">The youtube id of a longroduction video, if any</param>
         /// <param name="features">The list of features to enable</param>
         /// <param name="childrenId">The ids of the child shares that this share should include</param>
         /// <param name="scope">The scope the app should be shared with, either "public" or "private", defaults to "public"</param>
         /// <returns>The id of the newly created share</returns>
-        public async Task<int> ShareApp(string refType, int refId, string name, string abstracts, string description,
-            string language, int[] categoryId, int[] fileId, int videoId, List<string> features, int childrenId,
+        public async Task<long> ShareApp(string refType, long refId, string name, string abstracts, string description,
+            string language, long[] categoryId, long[] fileId, long videoId, List<string> features, long childrenId,
             string scope = "public")
         {
             string url = "/app_store/";
@@ -237,7 +237,7 @@ namespace PodioAPI.Services
                 scope = scope
             };
             dynamic response = await _podio.Post<dynamic>(url, requestData);
-            return (int) response["share_id"];
+            return (long) response["share_id"];
         }
 
         /// <summary>
@@ -245,7 +245,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <para>Podio API Reference: https://developers.podio.com/doc/app-market/unshare-app-37917  </para>
         /// <param name="shareId"></param>
-        public async Task<dynamic> UnshareApp(int shareId)
+        public async Task<dynamic> UnshareApp(long shareId)
         {
             string url = string.Format("/app_store/{0}", shareId);
             return await _podio.Delete<dynamic>(url);
@@ -262,9 +262,9 @@ namespace PodioAPI.Services
         /// <param name="language">The language the share is written in</param>
         /// <param name="categoryId">The ids of the categories the share should be placed in</param>
         /// <param name="fileId">The file ids to use as screenshots for the share</param>
-        /// <param name="videoId">The youtube id of a introduction video, if any</param>
-        public async Task<dynamic> UpdateShare(int shareId, string name, string abstracts, string description, string language,
-            int[] categoryId, int[] fileId, int? videoId = null)
+        /// <param name="videoId">The youtube id of a longroduction video, if any</param>
+        public async Task<dynamic> UpdateShare(long shareId, string name, string abstracts, string description, string language,
+            long[] categoryId, long[] fileId, long? videoId = null)
         {
             string url = string.Format("/app_store/{0}", shareId);
             dynamic requestData = new

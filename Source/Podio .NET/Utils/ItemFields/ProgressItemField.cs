@@ -6,7 +6,7 @@ namespace PodioAPI.Utils.ItemFields
 {
     public class ProgressItemField : ItemField
     {
-        public int? Value
+        public long? Value
         {
             get
             {

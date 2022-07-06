@@ -21,7 +21,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="fileId"></param>
         /// <returns></returns>
-        public async Task<FileAttachment> GetFile(int fileId)
+        public async Task<FileAttachment> GetFile(long fileId)
         {
             string url = string.Format("/file/{0}", fileId);
             return await _podio.Get<FileAttachment>(url);
@@ -92,7 +92,7 @@ namespace PodioAPI.Services
         /// <param name="fileId"></param>
         /// <param name="description">The new description of the file</param>
         /// <returns></returns>
-        public async System.Threading.Tasks.Task UpdateFile(int fileId, string description)
+        public async System.Threading.Tasks.Task UpdateFile(long fileId, string description)
         {
             string url = string.Format("/file/{0}", fileId);
             dynamic requestData = new
@@ -107,7 +107,7 @@ namespace PodioAPI.Services
         ///     <para>Podio API Reference: https://developers.podio.com/doc/files/delete-file-22453 </para>
         /// </summary>
         /// <param name="fileId"></param>
-        public async System.Threading.Tasks.Task DeleteFile(int fileId)
+        public async System.Threading.Tasks.Task DeleteFile(long fileId)
         {
             string url = string.Format("/file/{0}", fileId);
             await _podio.Delete<dynamic>(url);
@@ -120,7 +120,7 @@ namespace PodioAPI.Services
         /// <param name="oldFileId">The id of the old file that should be replacd with the new file</param>
         /// <param name="fileId"></param>
         /// <returns></returns>
-        public async System.Threading.Tasks.Task ReplaceFile(int oldFileId, int fileId)
+        public async System.Threading.Tasks.Task ReplaceFile(long oldFileId, long fileId)
         {
             string url = string.Format("/file/{0}/replace", fileId);
             dynamic requestData = new
@@ -141,7 +141,7 @@ namespace PodioAPI.Services
         /// </param>
         /// <param name="refId"></param>
         /// <returns></returns>
-        public async System.Threading.Tasks.Task AttachFile(int fileId, string refType, int refId)
+        public async System.Threading.Tasks.Task AttachFile(long fileId, string refType, long refId)
         {
             string url = string.Format("/file/{0}/attach", fileId);
             dynamic requestData = new
@@ -158,11 +158,11 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="fileId"></param>
         /// <returns>The id of the newly created file</returns>
-        public async Task<int> CopyFile(int fileId)
+        public async Task<long> CopyFile(long fileId)
         {
             string url = string.Format("/file/{0}/copy", fileId);
             dynamic response = await _podio.Post<dynamic>(url);
-            return (int)response["file_id"];
+            return (long)response["file_id"];
         }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace PodioAPI.Services
         /// <param name="sortDesc">true for to sort in descending order, false in ascending Default value: false</param>
         /// <returns></returns>
         public async Task<List<FileAttachment>> GetFiles(string attachedTo = null, string createdBy = null, string createdOn = null,
-            string filetype = null, string hostedBy = null, int limit = 20, string sortBy = null, bool sortDesc = false)
+            string filetype = null, string hostedBy = null, long limit = 20, string sortBy = null, bool sortDesc = false)
         {
             string url = "/file/";
             var requestData = new Dictionary<string, string>()
@@ -236,8 +236,8 @@ namespace PodioAPI.Services
         /// <param name="sortBy">How the files should be sorted. Can be one of {"name", "created_on"} Default value: name</param>
         /// <param name="sortDesc">true for to sort in descending order, false in ascending Default value: false</param>
         /// <returns></returns>
-        public async Task<List<FileAttachment>> GetFilesOnApp(int appId, string attachedTo = null, string createdBy = null,
-            string createdOn = null, string filetype = null, string hostedBy = null, int limit = 20, int offset = 0,
+        public async Task<List<FileAttachment>> GetFilesOnApp(long appId, string attachedTo = null, string createdBy = null,
+            string createdOn = null, string filetype = null, string hostedBy = null, long limit = 20, long offset = 0,
             string sortBy = null, bool sortDesc = false)
         {
             string url = string.Format("/file/app/{0}/", appId);
@@ -283,8 +283,8 @@ namespace PodioAPI.Services
         /// <param name="sortBy">How the files should be sorted. Can be one of {"name", "created_on"} Default value: name</param>
         /// <param name="sortDesc">true for to sort in descending order, false in ascending Default value: false</param>
         /// <returns></returns>
-        public async Task<List<FileAttachment>> GetFilesOnSpace(int spaceId, string attachedTo = null, string createdBy = null,
-            string createdOn = null, string filetype = null, string hostedBy = null, int limit = 20, int offset = 0,
+        public async Task<List<FileAttachment>> GetFilesOnSpace(long spaceId, string attachedTo = null, string createdBy = null,
+            string createdOn = null, string filetype = null, string hostedBy = null, long limit = 20, long offset = 0,
             string sortBy = null, bool sortDesc = false)
         {
             string url = string.Format("/file/space/{0}/", spaceId);
@@ -325,7 +325,7 @@ namespace PodioAPI.Services
         /// <param name="externalFileId"></param>
         /// <param name="preservePermissions"></param>
         /// <returns></returns>
-        public async Task<FileAttachment> UploadLinkedAccountFile(int linkedAccountId, string externalFileId, bool preservePermissions = true)
+        public async Task<FileAttachment> UploadLinkedAccountFile(long linkedAccountId, string externalFileId, bool preservePermissions = true)
         {
             var url = $"/file/linked_account/{linkedAccountId}/";
             var request = new

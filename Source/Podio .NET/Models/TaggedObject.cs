@@ -6,7 +6,7 @@ namespace PodioAPI.Models
     public class TaggedObject
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

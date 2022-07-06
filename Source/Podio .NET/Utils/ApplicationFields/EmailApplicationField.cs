@@ -25,7 +25,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["size"] = value;
+                this.internalConfig.Settings["size"] = value;
             }
         }
 
@@ -38,7 +38,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["include_in_cc"] = value;
+                this.internalConfig.Settings["include_in_cc"] = value;
             }
         }
 
@@ -51,7 +51,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["include_in_bcc"] = value;
+                this.internalConfig.Settings["include_in_bcc"] = value;
             }
         }
 

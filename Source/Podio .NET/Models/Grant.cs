@@ -6,13 +6,13 @@ namespace PodioAPI.Models
     public class Grant
     {
         [JsonProperty("grant_id")]
-        public int grantId { get; set; }
+        public long grantId { get; set; }
 
         [JsonProperty("ref_type")]
         public string refType { get; set; }
 
         [JsonProperty("ref_id")]
-        public int refId { get; set; }
+        public long refId { get; set; }
 
         [JsonProperty("action")]
         public string Action { get; set; }

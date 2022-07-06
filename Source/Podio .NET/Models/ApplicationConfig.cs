@@ -24,7 +24,7 @@ namespace PodioAPI.Models
         public object ExternalId { get; set; }
 
         [JsonProperty("icon_id")]
-        public int IconId { get; set; }
+        public long IconId { get; set; }
 
         [JsonProperty("allow_edit")]
         public bool AllowEdit { get; set; }

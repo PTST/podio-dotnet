@@ -4,13 +4,13 @@ using Newtonsoft.Json.Linq;
 
 namespace PodioAPI.Models
 {
-    public class Integration
+    public class longegration
     {
-        [JsonProperty(PropertyName = "integration_id")]
-        public int? IntegrationId { get; set; }
+        [JsonProperty(PropertyName = "longegration_id")]
+        public long? longegrationId { get; set; }
 
         [JsonProperty(PropertyName = "app_id")]
-        public int? AppId { get; set; }
+        public long? AppId { get; set; }
 
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }

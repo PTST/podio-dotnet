@@ -5,7 +5,7 @@ namespace PodioAPI.Models
     public class AppField
     {
         [JsonProperty("field_id")]
-        public int FieldId { get; set; }
+        public long FieldId { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

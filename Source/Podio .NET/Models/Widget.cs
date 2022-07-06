@@ -7,7 +7,7 @@ namespace PodioAPI.Models
     public class Widget
     {
         [JsonProperty("widget_id")]
-        public int? WidgetId { get; set; }
+        public long? WidgetId { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
@@ -37,15 +37,15 @@ namespace PodioAPI.Models
         public string[] AllowedRefs { get; set; }
 
         [JsonProperty("cols")]
-        public int Cols { get; set; }
+        public long Cols { get; set; }
 
         [JsonProperty("rows")]
-        public int Rows { get; set; }
+        public long Rows { get; set; }
 
         [JsonProperty("x")]
-        public int X { get; set; }
+        public long X { get; set; }
 
         [JsonProperty("y")]
-        public int Y { get; set; }
+        public long Y { get; set; }
     }
 }

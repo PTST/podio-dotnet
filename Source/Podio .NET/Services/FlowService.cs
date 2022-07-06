@@ -19,7 +19,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="flowId"></param>
         /// <returns></returns>
-        public async Task<Flow> GetFlowById(int flowId)
+        public async Task<Flow> GetFlowById(long flowId)
         {
             string url = string.Format("/flow/{0}", flowId);
             return await _podio.Get<Flow>(url);
@@ -32,7 +32,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <returns></returns>
-        public async Task<List<Flow>> GetFlows(string refType, int refId)
+        public async Task<List<Flow>> GetFlows(string refType, long refId)
         {
             string url = string.Format("/flow/{0}/{1}/", refType, refId);
             return await _podio.Get<List<Flow>>(url);
@@ -43,7 +43,7 @@ namespace PodioAPI.Services
         ///     <para>Podio API Reference: https://developers.podio.com/doc/flows/delete-flow-32929229 </para>
         /// </summary>
         /// <param name="flowId"></param>
-        public async Task<dynamic> DeleteFlow(int flowId)
+        public async Task<dynamic> DeleteFlow(long flowId)
         {
             string url = string.Format("/flow/{0}", flowId);
             return await _podio.Delete<dynamic>(url);
@@ -55,7 +55,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="flowId"></param>
         /// <returns></returns>
-        public async Task<Dictionary<string, FlowAttribute>> GetFlowContext(int flowId)
+        public async Task<Dictionary<string, FlowAttribute>> GetFlowContext(long flowId)
         {
             string url = string.Format("/flow/{0}/context/", flowId);
             return await _podio.Get<Dictionary<string, FlowAttribute>>(url);
@@ -71,7 +71,7 @@ namespace PodioAPI.Services
         /// <param name="type">The type of the flow, currently only supports "item.create" and "item.update"</param>
         /// <param name="effects">The list of effects to add</param>
         /// <param name="config">The configuration for the cause of the flow</param>
-        public async Task<int> AddNewFlow(string refType, int refId, string name, string type, List<Effect> effects,
+        public async Task<long> AddNewFlow(string refType, long refId, string name, string type, List<Effect> effects,
             dynamic config = null)
         {
             string url = string.Format("/flow/{0}/{1}/", refType, refId);
@@ -83,7 +83,7 @@ namespace PodioAPI.Services
                 effects = effects
             };
             dynamic response = await _podio.Post<dynamic>(url, requestData);
-            return (int) response["flow_id"];
+            return (long) response["flow_id"];
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace PodioAPI.Services
         /// <param name="name"> The new name of the flow</param>
         /// <param name="effects">The list of effects to add</param>
         /// <param name="config">The configuration for the cause of the flow</param>
-        public async Task<dynamic> UpdateFlow(int flowId, string name, List<Effect> effects = null, dynamic config = null)
+        public async Task<dynamic> UpdateFlow(long flowId, string name, List<Effect> effects = null, dynamic config = null)
         {
             string url = string.Format("/flow/{0}", flowId);
             dynamic requestData = new
@@ -115,7 +115,7 @@ namespace PodioAPI.Services
         /// <param name="cause">Details about the cause</param>
         /// <param name="effect">Details about the effect</param>
         /// <returns></returns>
-        public async Task<List<FlowAttribute>> GetPossibleAttributes(string refType, int refId, Cause cause, dynamic effect)
+        public async Task<List<FlowAttribute>> GetPossibleAttributes(string refType, long refId, Cause cause, dynamic effect)
         {
             string url = string.Format("/flow/{0}/{1}/attributes/", refType, refId);
             dynamic requestData = new

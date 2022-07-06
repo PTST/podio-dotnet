@@ -68,7 +68,7 @@ namespace PodioAPI.Utils.ApplicationFields
             {
                 currentValues.Remove(fieldName);
             }
-            this.InternalConfig.Settings["fields"] = JToken.FromObject(currentValues);
+            this.internalConfig.Settings["fields"] = JToken.FromObject(currentValues);
         }
 
         private IEnumerable<string> GetFields()

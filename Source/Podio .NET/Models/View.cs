@@ -43,6 +43,6 @@ namespace PodioAPI.Models
         public string FilterId { get; set; }
 
         [JsonProperty("items")]
-        public int Items { get; set; }
+        public long Items { get; set; }
     }
 }

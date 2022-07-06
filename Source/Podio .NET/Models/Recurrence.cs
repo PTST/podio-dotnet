@@ -7,7 +7,7 @@ namespace PodioAPI.Models
     public class Recurrence
     {
         [JsonProperty(PropertyName = "recurrence_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? RecurrenceId { get; set; }
+        public long? RecurrenceId { get; set; }
 
         /// <summary>
         ///     The name of the recurrence, "weekly", "monthly" or "yearly"
@@ -22,7 +22,7 @@ namespace PodioAPI.Models
         ///     The step size, 1 or more
         /// </summary>
         [JsonProperty(PropertyName = "step", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Step { get; set; }
+        public long? Step { get; set; }
 
         /// <summary>
         ///     The latest date the recurrence should take place

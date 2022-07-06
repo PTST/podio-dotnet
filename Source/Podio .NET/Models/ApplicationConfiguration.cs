@@ -36,7 +36,7 @@ namespace PodioAPI.Models
         public object ExternalId { get; set; }
 
         [JsonProperty("icon_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? IconId { get; set; }
+        public long? IconId { get; set; }
 
         /// <summary>
         ///     The icon for the app. This is required on Application create.

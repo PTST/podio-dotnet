@@ -6,13 +6,13 @@ namespace PodioAPI.Models
     public class UserStatus
     {
         [JsonProperty("inbox_new")]
-        public int inboxNew { get; set; }
+        public long inboxNew { get; set; }
 
         [JsonProperty("calendar_code")]
         public string calenderCode { get; set; }
 
         [JsonProperty("message_unread_count")]
-        public int MessageUnreadCount { get; set; }
+        public long MessageUnreadCount { get; set; }
 
         [JsonProperty("mailbox")]
         public string mailBox { get; set; }

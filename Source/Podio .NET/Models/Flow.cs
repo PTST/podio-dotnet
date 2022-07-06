@@ -13,10 +13,10 @@ namespace PodioAPI.Models
         public string Name { get; set; }
 
         [JsonProperty("flow_id")]
-        public int FlowId { get; set; }
+        public long FlowId { get; set; }
 
         [JsonProperty("execution_count")]
-        public int ExecutionCount { get; set; }
+        public long ExecutionCount { get; set; }
 
         [JsonProperty("ref")]
         public Ref Ref { get; set; }

@@ -21,7 +21,7 @@ namespace PodioAPI.Services
         /// <param name="name">The name of the new organization</param>
         /// <param name="logo">The file id of the logo of the organization</param>
         /// <returns></returns>
-        public async Task<Organization> AddNewOrganization(string name, int logo)
+        public async Task<Organization> AddNewOrganization(string name, long logo)
         {
             string url = "/org/";
             dynamic requestData = new
@@ -38,7 +38,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <param name="userId">The id of the user to be made administrator</param>
-        public async Task<dynamic> AddOrganizationAdmin(int organizationId, int userId)
+        public async Task<dynamic> AddOrganizationAdmin(long organizationId, long userId)
         {
             string url = string.Format("/org/{0}/admin/", organizationId);
             dynamic requestData = new
@@ -58,13 +58,13 @@ namespace PodioAPI.Services
         /// <param name="organizationId"></param>
         /// <param name="profileData"></param>
         /// <returns></returns>
-        public async Task<int?> CreateOrganizationAppStoreProfile(int organizationId, Contact profileData)
+        public async Task<long?> CreateOrganizationAppStoreProfile(long organizationId, Contact profileData)
         {
             string url = string.Format("/org/{0}/appstore", organizationId);
             dynamic response = await _podio.Post<dynamic>(url, profileData);
 
             if (response != null)
-                return (int) response["profile_id"];
+                return (long) response["profile_id"];
             else
                 return null;
         }
@@ -77,7 +77,7 @@ namespace PodioAPI.Services
         ///     </para>
         /// </summary>
         /// <param name="organizationId"></param>
-        public async Task<dynamic> DeleteOrganizationAppStoreProfile(int organizationId)
+        public async Task<dynamic> DeleteOrganizationAppStoreProfile(long organizationId)
         {
             string url = string.Format("/org/{0}/appstore", organizationId);
             return await _podio.Delete<dynamic>(url);
@@ -89,7 +89,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <param name="userId"></param>
-        public async Task<dynamic> DeleteOrganizationMemberRole(int organizationId, int userId)
+        public async Task<dynamic> DeleteOrganizationMemberRole(long organizationId, long userId)
         {
             string url = string.Format("/org/{0}/member/{1}/role", organizationId, userId);
             return await _podio.Delete<dynamic>(url);
@@ -102,7 +102,7 @@ namespace PodioAPI.Services
         /// <param name="organizationId"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<OrganizationMember> GetMember(int organizationId, int userId)
+        public async Task<OrganizationMember> GetMember(long organizationId, long userId)
         {
             string url = string.Format("/org/{0}/member/{1}", organizationId, userId);
             return await _podio.Get<OrganizationMember>(url);
@@ -124,8 +124,8 @@ namespace PodioAPI.Services
         /// <param name="sortBy">The sorting order of the results returned. Valid options are "name" and "last_seen_on" </param>
         /// <param name="sortDesc">True if the results should be sorted descending, false otherwise. Default value: false </param>
         /// <returns></returns>
-        public async Task<List<OrganizationMember>> GetMembers(int organizationId, string memberType = null, string query = null,
-            int? limit = null, int? offset = null, string sortBy = null, bool sortDesc = false)
+        public async Task<List<OrganizationMember>> GetMembers(long organizationId, string memberType = null, string query = null,
+            long? limit = null, long? offset = null, string sortBy = null, bool sortDesc = false)
         {
             string url = string.Format("/org/{0}/member/", organizationId);
             var requestData = new Dictionary<string, string>
@@ -157,7 +157,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns></returns>
-        public async Task<Organization> GetOrganization(int organizationId)
+        public async Task<Organization> GetOrganization(long organizationId)
         {
             string url = string.Format("/org/{0}", organizationId);
             return await _podio.Get<Organization>(url);
@@ -186,7 +186,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns></returns>
-        public async Task<List<User>> GetOrganizationAdmins(int organizationId)
+        public async Task<List<User>> GetOrganizationAdmins(long organizationId)
         {
             string url = string.Format("/org/{0}/admin/", organizationId);
             return await _podio.Get<List<User>>(url);
@@ -198,7 +198,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns></returns>
-        public async Task<Contact> GetOrganizationAppStoreProfile(int organizationId)
+        public async Task<Contact> GetOrganizationAppStoreProfile(long organizationId)
         {
             string url = string.Format("/org/{0}/appstore", organizationId);
             return await _podio.Get<Contact>(url);
@@ -214,10 +214,10 @@ namespace PodioAPI.Services
         ///     The number of weeks to return counting backwards from the previous week, but no more than 16. It
         ///     will also never return data older than when the organization was created. Default value: 4
         /// </param>
-        /// <param name="offset">The offset into the weeks to return. Default value: 0</param>
+        /// <param name="offset">The offset longo the weeks to return. Default value: 0</param>
         /// <returns></returns>
-        public async Task<List<OrganizationLoginReport>> GetOrganizationLoginReport(int organizationId, int limit = 4,
-            int offset = 0)
+        public async Task<List<OrganizationLoginReport>> GetOrganizationLoginReport(long organizationId, long limit = 4,
+            long offset = 0)
         {
             string url = string.Format("/org/{0}/report/login/", organizationId);
             var requestData = new Dictionary<string, string>()
@@ -234,7 +234,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns></returns>
-        public async Task<Contact> GetOrganizationBillingProfile(int organizationId)
+        public async Task<Contact> GetOrganizationBillingProfile(long organizationId)
         {
             string url = string.Format("/org/{0}/billing", organizationId);
             return await _podio.Get<Contact>(url);
@@ -246,7 +246,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <returns></returns>
-        public async Task<List<Space>> GetSpacesOnOrganization(int organizationId)
+        public async Task<List<Space>> GetSpacesOnOrganization(long organizationId)
         {
             string url = string.Format("/org/{0}/space/", organizationId);
             return await _podio.Get<List<Space>>(url);
@@ -259,7 +259,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <param name="userId"></param>
-        public async Task<dynamic> RemoveOrganizationAdmin(int organizationId, int userId)
+        public async Task<dynamic> RemoveOrganizationAdmin(long organizationId, long userId)
         {
             string url = string.Format("/org/{0}/admin/{1}", organizationId, userId);
             return await _podio.Delete<dynamic>(url);
@@ -273,7 +273,7 @@ namespace PodioAPI.Services
         /// <param name="name">The name of the new organization</param>
         /// <param name="urlLabel">The new subdomain of the URL of the organization, defaults to the existing URL</param>
         /// <param name="logo">The file id of the logo of the organization</param>
-        public async Task<dynamic> UpdateOrganization(int organizationId, string name = null, string urlLabel = null, int? logo = null)
+        public async Task<dynamic> UpdateOrganization(long organizationId, string name = null, string urlLabel = null, long? logo = null)
         {
             string url = string.Format("/org/{0}", organizationId);
             dynamic requestData = new
@@ -290,7 +290,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <param name="profileData">The value or list of values for the given field. For a list of fields see the contact area</param>
-        public async Task<dynamic> UpdateOrganizationAppStoreProfile(int organizationId, Contact profileData)
+        public async Task<dynamic> UpdateOrganizationAppStoreProfile(long organizationId, Contact profileData)
         {
             string url = string.Format("/org/{0}/appstore", organizationId);
             return await _podio.Put<dynamic>(url, profileData);
@@ -301,7 +301,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="organizationId"></param>
         /// <param name="profileData">The value or list of values for the given field. For a list of fields see the contact area</param>
-        public async Task<dynamic> UpdateOrganizationBillingProfile(int organizationId, Contact profileData)
+        public async Task<dynamic> UpdateOrganizationBillingProfile(long organizationId, Contact profileData)
         {
             string url = string.Format("/org/{0}/billing", organizationId);
             return await _podio.Put<dynamic>(url, profileData);
@@ -315,7 +315,7 @@ namespace PodioAPI.Services
         /// <param name="organizationId"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<List<SpaceMember>> GetSpaceMembershipsForOrgMember(int organizationId, int userId)
+        public async Task<List<SpaceMember>> GetSpaceMembershipsForOrgMember(long organizationId, long userId)
         {
             string url = string.Format("/org/{0}/member/{1}/space_member/", organizationId, userId);
             return await _podio.Get<List<SpaceMember>>(url);
@@ -332,7 +332,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<List<Organization>> GetSharedOrganizations(int userId)
+        public async Task<List<Organization>> GetSharedOrganizations(long userId)
         {
             string url = string.Format("/org/shared/{0}", userId);
             return await _podio.Get<List<Organization>>(url);

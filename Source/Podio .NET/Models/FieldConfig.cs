@@ -36,10 +36,10 @@ namespace PodioAPI.Models
         public bool? Visible { get; set; }
 
         /// <summary>
-        ///     An integer indicating the order of the field compared to other fields
+        ///     An longeger indicating the order of the field compared to other fields
         /// </summary>
         [JsonProperty("delta", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Delta { get; set; }
+        public long? Delta { get; set; }
 
         [JsonProperty("hidden", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Hidden { get; set; }

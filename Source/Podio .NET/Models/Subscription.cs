@@ -9,7 +9,7 @@ namespace PodioAPI.Models
         public DateTime StartedOn { get; set; }
 
         [JsonProperty("notifications")]
-        public int Notifications { get; set; }
+        public long Notifications { get; set; }
 
         [JsonProperty("ref")]
         public Ref Reference { get; set; }

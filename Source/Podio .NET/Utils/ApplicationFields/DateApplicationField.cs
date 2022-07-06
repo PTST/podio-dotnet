@@ -13,7 +13,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["calendar"] = value;
+                this.internalConfig.Settings["calendar"] = value;
             }
         }
 
@@ -26,7 +26,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["end"] = value;
+                this.internalConfig.Settings["end"] = value;
             }
         }
 
@@ -39,7 +39,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["time"] = value;
+                this.internalConfig.Settings["time"] = value;
             }
         }
     }

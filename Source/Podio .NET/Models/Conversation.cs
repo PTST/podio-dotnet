@@ -7,7 +7,7 @@ namespace PodioAPI.Models
     public class Conversation
     {
         [JsonProperty(PropertyName = "unread_count")]
-        public int? UnreadCount { get; set; }
+        public long? UnreadCount { get; set; }
 
         [JsonProperty(PropertyName = "presence")]
         public Presence Presence { get; set; }
@@ -31,7 +31,7 @@ namespace PodioAPI.Models
         public DateTime LastEventOn { get; set; }
 
         [JsonProperty(PropertyName = "conversation_id")]
-        public int? ConversationId { get; set; }
+        public long? ConversationId { get; set; }
 
         [JsonProperty(PropertyName = "starred")]
         public bool Starred { get; set; }

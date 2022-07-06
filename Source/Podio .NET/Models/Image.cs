@@ -17,7 +17,7 @@ namespace PodioAPI.Models
         public string Link { get; set; }
 
         [JsonProperty("file_id")]
-        public int FileId { get; set; }
+        public long FileId { get; set; }
 
         [JsonProperty("link_target")]
         public string LinkTarget { get; set; }

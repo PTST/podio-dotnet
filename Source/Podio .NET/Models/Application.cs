@@ -14,13 +14,13 @@ namespace PodioAPI.Models
         }
 
         [JsonProperty("app_id")]
-        public int AppId { get; set; }
+        public long AppId { get; set; }
 
         [JsonProperty("original")]
-        public int? Original { get; private set; }
+        public long? Original { get; private set; }
 
         [JsonProperty("original_revision")]
-        public int? OriginalRevision { get; private set; }
+        public long? OriginalRevision { get; private set; }
 
         [JsonProperty("status")]
         public string Status { get; private set; }
@@ -29,13 +29,13 @@ namespace PodioAPI.Models
         public string Icon { get; private set; }
 
         [JsonProperty("icon_id")]
-        public int? IconId { get; private set; }
+        public long? IconId { get; private set; }
 
         [JsonProperty("space_id")]
-        public int? SpaceId { get; set; }
+        public long? SpaceId { get; set; }
 
         [JsonProperty("owner_id")]
-        public int? OwnerId { get; private set; }
+        public long? OwnerId { get; private set; }
 
         [JsonProperty("owner")]
         public Profile Owner { get; private set; }
@@ -47,7 +47,7 @@ namespace PodioAPI.Models
         public JToken Layouts { get; set; }
 
         [JsonProperty("current_revision")]
-        public int? CurrentRevision { get; private set; }
+        public long? CurrentRevision { get; private set; }
 
         [JsonProperty("subscribed")]
         public bool Subscribed { get; private set; }
@@ -73,8 +73,8 @@ namespace PodioAPI.Models
         [JsonProperty("mailbox")]
         public string Mailbox { get; private set; }
 
-        [JsonProperty("integration")]
-        public Integration Integration { get; set; }
+        [JsonProperty("longegration")]
+        public longegration longegration { get; set; }
 
         [JsonProperty("fields")]
         public List<ApplicationField> Fields { get; set; }
@@ -115,7 +115,7 @@ namespace PodioAPI.Models
         /// <typeparam name="T"></typeparam>
         /// <param name="fieldId"></param>
         /// <returns></returns>
-        public T Field<T>(int fieldId)
+        public T Field<T>(long fieldId)
             where T : ApplicationField, new()
         {
             var genericField = this.Fields.Find(field => field.FieldId == fieldId);
@@ -137,7 +137,7 @@ namespace PodioAPI.Models
             return specificField;
         }
 
-        protected T fieldInstance<T>(ApplicationField genericField, string externalId = null, int? fieldId = null)
+        protected T fieldInstance<T>(ApplicationField genericField, string externalId = null, long? fieldId = null)
             where T : ApplicationField, new()
         {
             T specificField = new T();

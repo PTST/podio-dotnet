@@ -7,10 +7,10 @@ namespace PodioAPI.Models
     public class Contact
     {
         [JsonProperty("profile_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int ProfileId { get; set; }
+        public long ProfileId { get; set; }
 
         [JsonProperty("user_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? UserId { get; set; }
+        public long? UserId { get; set; }
 
         [JsonProperty("external_id", NullValueHandling = NullValueHandling.Ignore)]
         public string ExternalId { get; set; }
@@ -25,7 +25,7 @@ namespace PodioAPI.Models
         ///     The file id of the avatar
         /// </summary>
         [JsonProperty("avatar", NullValueHandling = NullValueHandling.Ignore)]
-        public int Avatar { get; set; }
+        public long Avatar { get; set; }
 
         public DateTime? BirthDate
         {
@@ -100,7 +100,7 @@ namespace PodioAPI.Models
         public string Organization { get; set; }
 
         [JsonProperty("space_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? SpaceId { get; set; }
+        public long? SpaceId { get; set; }
 
         [JsonProperty("link", NullValueHandling = NullValueHandling.Ignore)]
         public string Link { get; set; }
@@ -132,7 +132,7 @@ namespace PodioAPI.Models
         // Only available for space contacts
 
         [JsonProperty("role", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Role { get; set; }
+        public long? Role { get; set; }
 
         [JsonProperty("removable", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Removable { get; set; }

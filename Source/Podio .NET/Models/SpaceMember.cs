@@ -21,7 +21,7 @@ namespace PodioAPI.Models
         public DateTime? ended_on { get; set; }
 
         [JsonProperty("grants")]
-        public int? Grant { get; set; }
+        public long? Grant { get; set; }
 
         [JsonProperty("user")]
         public User User { get; set; }

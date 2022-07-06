@@ -39,7 +39,7 @@ namespace PodioAPI.Models
     public class ReferenceFieldSetting
     {
         [JsonProperty("referenceable_types")]
-        public int[] ReferenceableTypes { get; set; }
+        public long[] ReferenceableTypes { get; set; }
     }
 
     public class ValueFields : CommenFieldsValues
@@ -72,6 +72,6 @@ namespace PodioAPI.Models
         public string Label { get; set; }
 
         [JsonProperty("field_id")]
-        public int FieldId { get; set; }
+        public long FieldId { get; set; }
     }
 }

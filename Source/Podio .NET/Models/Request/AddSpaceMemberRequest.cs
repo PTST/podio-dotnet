@@ -21,13 +21,13 @@ namespace PodioAPI.Models.Request
         ///     The list of profile ids to invite to the space
         /// </summary>
         [JsonProperty("profiles", NullValueHandling = NullValueHandling.Ignore)]
-        public IEnumerable<int> Profiles { get; set; }
+        public IEnumerable<long> Profiles { get; set; }
 
         /// <summary>
         ///     The list of users ids to invite
         /// </summary>
         [JsonProperty("users", NullValueHandling = NullValueHandling.Ignore)]
-        public IEnumerable<int> Users { get; set; }
+        public IEnumerable<long> Users { get; set; }
 
         /// <summary>
         ///     The list of mail addresses for new or existing Podio users
@@ -45,6 +45,6 @@ namespace PodioAPI.Models.Request
         ///     Must be set to the item id if source_key is set
         /// </summary>
         [JsonProperty("context_ref_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? ContextRefId { get; set; }
+        public long? ContextRefId { get; set; }
     }
 }

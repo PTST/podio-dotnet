@@ -14,7 +14,7 @@ namespace PodioAPI.Models
     public class Notification
     {
         [JsonProperty("notification_id")]
-        public int? NotificationId { get; set; }
+        public long? NotificationId { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
@@ -32,7 +32,7 @@ namespace PodioAPI.Models
         public DateTime ViewedOn { get; set; }
 
         [JsonProperty("subscription_id")]
-        public int? SubscriptionId { get; set; }
+        public long? SubscriptionId { get; set; }
 
         [JsonProperty("created_on")]
         public DateTime? CreatedOn { get; set; }

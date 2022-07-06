@@ -7,13 +7,13 @@ namespace PodioAPI.Utils.ApplicationFields
         /// <summary>
         ///     The number of decimals displayed
         /// </summary>
-        public int? Decimals
+        public long? Decimals
         {
-            get { return (int?) this.GetSetting("decimals"); }
+            get { return (long?) this.GetSetting("decimals"); }
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["decimals"] = value;
+                this.internalConfig.Settings["decimals"] = value;
             }
         }
     }

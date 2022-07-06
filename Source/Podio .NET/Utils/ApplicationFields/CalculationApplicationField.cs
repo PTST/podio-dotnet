@@ -24,7 +24,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["expression"] = value != null ? JToken.FromObject(value) : null;
+                this.internalConfig.Settings["expression"] = value != null ? JToken.FromObject(value) : null;
             }
         }
 
@@ -46,7 +46,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["script"] = value;
+                this.internalConfig.Settings["script"] = value;
             }
         }
 
@@ -68,7 +68,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["unit"] = value;
+                this.internalConfig.Settings["unit"] = value;
             }
         }
 
@@ -89,25 +89,25 @@ namespace PodioAPI.Utils.ApplicationFields
             }
         }
 
-        private int? _decimals;
+        private long? _decimals;
 
         /// <summary>
         ///     The number of decimals displayed
         /// </summary>
-        public int? Decimals
+        public long? Decimals
         {
             get
             {
                 if (_decimals == null)
                 {
-                    _decimals = (int?) this.GetSetting("decimals");
+                    _decimals = (long?) this.GetSetting("decimals");
                 }
                 return _decimals;
             }
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["decimals"] = value;
+                this.internalConfig.Settings["decimals"] = value;
             }
         }
     }
@@ -127,7 +127,7 @@ namespace PodioAPI.Utils.ApplicationFields
         ///     The id of the field to receive the value from. only when type is "field"
         /// </summary>
         [JsonProperty("field_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? FieldId { get; set; }
+        public long? FieldId { get; set; }
 
         /// <summary>
         ///     The id of the field to receive the value from, only when type is "number"
@@ -139,13 +139,13 @@ namespace PodioAPI.Utils.ApplicationFields
         ///     The app reference field, only when type is "reference" , "outgoing_reference"
         /// </summary>
         [JsonProperty("reference_field_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? ReferenceField_id { get; set; }
+        public long? ReferenceField_id { get; set; }
 
         /// <summary>
         ///     The id of the value field on the related app
         /// </summary>
         [JsonProperty("value_field_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? ValueFieldId { get; set; }
+        public long? ValueFieldId { get; set; }
 
         /// <summary>
         ///     The aggregation of the related item, either "sum", "average", "min", "max" and "count"

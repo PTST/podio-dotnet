@@ -8,7 +8,7 @@ namespace PodioAPI.Models
         ///     The id of the field
         /// </summary>
         [JsonProperty("field_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int FieldId { get; set; }
+        public long FieldId { get; set; }
 
         /// <summary>
         ///     Any settings of the field which depends on the type of the field. See area for more information

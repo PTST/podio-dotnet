@@ -21,8 +21,8 @@ namespace PodioAPI
         protected string ClientSecret { get; set; }
         public OAuth OAuth { get; set; }
         public IAuthStore AuthStore { get; set; }
-        public int RateLimit { get; private set; }
-        public int RateLimitRemaining { get; private set; }
+        public long RateLimit { get; private set; }
+        public long RateLimitRemaining { get; private set; }
         protected virtual string ApiUrl { get; set; }
 
         private static readonly HttpClient HttpClient;
@@ -35,7 +35,7 @@ namespace PodioAPI
         /// <param name="clientSecret">Client Secret</param>
         /// <param name="authStore">
         ///     If you need to persist the access tokens for a longer period (in your session, database or whereever), Implement
-        ///     PodioAPI.Utils.IAuthStore Interface and pass it in.
+        ///     PodioAPI.Utils.IAuthStore interface and pass it in.
         ///     <para> You can use the IsAuthenticated method to check if there is a stored access token already present</para>
         /// </param>
         public Podio(string clientId, string clientSecret, IAuthStore authStore = null)
@@ -128,9 +128,9 @@ namespace PodioAPI
 
             // Get rate limits from header values
             if (response.Headers.Contains("X-Rate-Limit-Remaining"))
-                RateLimitRemaining = int.Parse(response.Headers.GetValues("X-Rate-Limit-Remaining").First());
+                RateLimitRemaining = long.Parse(response.Headers.GetValues("X-Rate-Limit-Remaining").First());
             if (response.Headers.Contains("X-Rate-Limit-Limit"))
-                RateLimit = int.Parse(response.Headers.GetValues("X-Rate-Limit-Limit").First());
+                RateLimit = long.Parse(response.Headers.GetValues("X-Rate-Limit-Limit").First());
 
             if (response.IsSuccessStatusCode)
             {
@@ -182,7 +182,7 @@ namespace PodioAPI
                         else
                         {
                             OAuth = null;
-                            throw new PodioAuthorizationException((int)response.StatusCode, podioError);
+                            throw new PodioAuthorizationException((long)response.StatusCode, podioError);
                         }
                     }
                     else
@@ -193,7 +193,7 @@ namespace PodioAPI
                 }
                 catch (JsonException ex)
                 {
-                    throw new PodioInvalidJsonException((int)response.StatusCode, new PodioError
+                    throw new PodioInvalidJsonException((long)response.StatusCode, new PodioError
                     {
                         Error = "Error response is not a valid Json string.",
                         ErrorDescription = ex.ToString(),
@@ -231,7 +231,7 @@ namespace PodioAPI
 
         private void ProcessErrorResponse(HttpStatusCode statusCode, PodioError podioError)
         {
-            var status = (int)statusCode;
+            var status = (long)statusCode;
            
             switch (status)
             {
@@ -278,7 +278,7 @@ namespace PodioAPI
         /// <param name="appId">AppId</param>
         /// <param name="appToken">AppToken</param>
         /// <returns>PodioOAuth object with OAuth data</returns>
-        public async Task<PodioOAuth> AuthenticateWithApp(int appId, string appToken)
+        public async Task<PodioOAuth> AuthenticateWithApp(long appId, string appToken)
         {
             var authRequest = new Dictionary<string, string>()
             {
@@ -378,7 +378,7 @@ namespace PodioAPI
         }
 
         /// <summary>
-        ///     Constructs the full url to Podio's authorization endpoint (To get AuthorizationCode in server-side flow)
+        ///     Constructs the full url to Podio's authorization endpolong (To get AuthorizationCode in server-side flow)
         /// </summary>
         /// <param name="redirectUri">
         ///     The redirectUri must be on the same domain as the domain you specified when you applied for
@@ -698,12 +698,12 @@ namespace PodioAPI
         }
 
         /// <summary>
-        ///     Provies API methods in Integrations area
-        ///     <para> https://developers.podio.com/doc/integrations </para>
+        ///     Provies API methods in longegrations area
+        ///     <para> https://developers.podio.com/doc/longegrations </para>
         /// </summary>
-        public IntegrationService IntegrationService
+        public longegrationService longegrationService
         {
-            get { return new IntegrationService(this); }
+            get { return new longegrationService(this); }
         }
 
         /// <summary>

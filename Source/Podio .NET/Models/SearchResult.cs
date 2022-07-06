@@ -9,13 +9,13 @@ namespace PodioAPI.Models
     {
        
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
 
         [JsonProperty("rank")]
-        public int Rank { get; set; }
+        public long Rank { get; set; }
 
         [JsonProperty("title")]
         public string Title { get; set; }

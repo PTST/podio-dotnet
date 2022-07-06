@@ -24,7 +24,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["size"] = value;
+                this.internalConfig.Settings["size"] = value;
             }
         }
     }

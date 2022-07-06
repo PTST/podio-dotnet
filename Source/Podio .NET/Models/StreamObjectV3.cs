@@ -26,13 +26,13 @@ namespace PodioAPI.Models
         public List<FileAttachment> Files { get; set; }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("is_liked")]
         public bool IsLiked { get; set; }
 
         [JsonProperty("like_count")]
-        public int LikeCount { get; set; }
+        public long LikeCount { get; set; }
 
         [JsonProperty("link")]
         public string link { get; set; }
@@ -50,7 +50,7 @@ namespace PodioAPI.Models
         public bool Subscribed { get; set; }
 
         [JsonProperty("subscribed_count")]
-        public int SubscribedCount { get; set; }
+        public long SubscribedCount { get; set; }
 
         [JsonProperty("title")]
         public string title { get; set; }

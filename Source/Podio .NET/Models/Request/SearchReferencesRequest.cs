@@ -28,7 +28,7 @@ namespace PodioAPI.Models.Request
         ///     The maximum number of results to return (optional).
         /// </summary>
         [JsonProperty("limit", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Limit { get; set; }
+        public long? Limit { get; set; }
     }
 
     public class TargetParams
@@ -38,18 +38,18 @@ namespace PodioAPI.Models.Request
         ///     supported.
         /// </summary>
         [JsonProperty("field_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int FieldId { get; set; }
+        public long FieldId { get; set; }
 
         /// <summary>
         ///     if target = "item_field". A list of item id's that should be excluded from the result.
         /// </summary>
         [JsonProperty("not_item_ids", NullValueHandling = NullValueHandling.Ignore)]
-        public List<int> NotItemIds { get; set; }
+        public List<long> NotItemIds { get; set; }
 
         /// <summary>
         ///     if  target = "item_created_by", "item_created_via" or "item_tags". Id of the app to search for.
         /// </summary>
         [JsonProperty("app_id", NullValueHandling = NullValueHandling.Ignore)]
-        public List<int> AppId { get; set; }
+        public List<long> AppId { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace PodioAPI.Services
         ///     "file" and  "profile"
         /// </param>
         /// <returns></returns>
-        public async Task<List<SearchResult>> SearchGlobally(string query, int? limit = null, int offset = 0, string refType = null)
+        public async Task<List<SearchResult>> SearchGlobally(string query, long? limit = null, long offset = 0, string refType = null)
         {
             string url = "/search/";
             dynamic requestData = new
@@ -52,7 +52,7 @@ namespace PodioAPI.Services
         ///     "file" and  "profile"
         /// </param>
         /// <returns></returns>
-        public async Task<List<SearchResult>> SearchInApp(int appId, string query, int? limit = null, int offset = 0,
+        public async Task<List<SearchResult>> SearchInApp(long appId, string query, long? limit = null, long offset = 0,
             string refType = null)
         {
             string url = string.Format("/search/app/{0}/", appId);
@@ -79,7 +79,7 @@ namespace PodioAPI.Services
         ///     "file" and  "profile"
         /// </param>
         /// <returns></returns>
-        public async Task<List<SearchResult>> SearchInOrganization(int orgId, string query, int? limit = null, int offset = 0,
+        public async Task<List<SearchResult>> SearchInOrganization(long orgId, string query, long? limit = null, long offset = 0,
             string refType = null)
         {
             string url = string.Format("/search/org/{0}/", orgId);
@@ -107,7 +107,7 @@ namespace PodioAPI.Services
         ///     "file" and  "profile"
         /// </param>
         /// <returns></returns>
-        public async Task<List<SearchResult>> SearchInSpace(int spaceId, string query, int? limit = null, int offset = 0,
+        public async Task<List<SearchResult>> SearchInSpace(long spaceId, string query, long? limit = null, long offset = 0,
             string refType = null)
         {
             string url = string.Format("/search/space/{0}/", spaceId);

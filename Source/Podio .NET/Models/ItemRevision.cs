@@ -6,13 +6,13 @@ namespace PodioAPI.Models
     public class ItemRevision
     {
         [JsonProperty("revision")]
-        public int Revision { get; set; }
+        public long Revision { get; set; }
 
         [JsonProperty("item_revision_id")]
         public long? ItemRevisionId { get; set; }
 
         [JsonProperty("app_revision")]
-        public int? AppRevision { get; set; }
+        public long? AppRevision { get; set; }
 
         [JsonProperty("created_on")]
         public DateTime CreatedOn { get; set; }

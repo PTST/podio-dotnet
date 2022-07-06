@@ -37,7 +37,7 @@ namespace PodioAPI.Models.Request
     public class ItemCalculateRequest
     {
         [JsonProperty("limit", NullValueHandling = NullValueHandling.Ignore)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         [JsonProperty("aggregation", NullValueHandling = NullValueHandling.Ignore)]
         public string Aggregation { get; set; }

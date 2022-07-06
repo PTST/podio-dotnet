@@ -6,7 +6,7 @@ namespace PodioAPI.Models.Request
     public class ApplicationCreateUpdateRequest
     {
         [JsonProperty("space_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? SpaceId { get; set; }
+        public long? SpaceId { get; set; }
 
         [JsonProperty(PropertyName = "config", NullValueHandling = NullValueHandling.Ignore)]
         public ApplicationConfiguration Config { get; set; }

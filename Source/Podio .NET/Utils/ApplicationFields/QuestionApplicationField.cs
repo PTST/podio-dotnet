@@ -26,7 +26,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["options"] = value != null ? JToken.FromObject(value) : null;
+                this.internalConfig.Settings["options"] = value != null ? JToken.FromObject(value) : null;
             }
         }
 
@@ -39,7 +39,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["multiple"] = value;
+                this.internalConfig.Settings["multiple"] = value;
             }
         }
     }

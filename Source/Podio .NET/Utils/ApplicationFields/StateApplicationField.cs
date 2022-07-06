@@ -21,7 +21,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["allowed_values"] = value != null ? JToken.FromObject(value) : null;
+                this.internalConfig.Settings["allowed_values"] = value != null ? JToken.FromObject(value) : null;
             }
         }
     }

@@ -22,7 +22,7 @@ namespace PodioAPI.Models
         public Via CreatedVia { get; set; }
 
         [JsonProperty("group_id")]
-        public int GroupId { get; set; }
+        public long GroupId { get; set; }
 
         [JsonProperty("kind")]
         public string Kind { get; set; }

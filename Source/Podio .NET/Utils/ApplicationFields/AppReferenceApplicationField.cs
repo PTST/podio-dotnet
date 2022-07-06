@@ -6,25 +6,25 @@ namespace PodioAPI.Utils.ApplicationFields
 {
     public class AppReferenceApplicationField : ApplicationField
     {
-        private IEnumerable<int> _referenceableTypes;
+        private IEnumerable<long> _referenceableTypes;
 
         /// <summary>
         ///     List of ids of the apps that can be referenced.
         /// </summary>
-        public IEnumerable<int> ReferenceableTypes
+        public IEnumerable<long> ReferenceableTypes
         {
             get
             {
                 if (_referenceableTypes == null)
                 {
-                    _referenceableTypes = this.GetSettingsAs<int>("referenceable_types");
+                    _referenceableTypes = this.GetSettingsAs<long>("referenceable_types");
                 }
                 return _referenceableTypes;
             }
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["referenceable_types"] = value != null ? JToken.FromObject(value) : null;
+                this.internalConfig.Settings["referenceable_types"] = value != null ? JToken.FromObject(value) : null;
             }
         }
 
@@ -37,7 +37,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["multiple"] = value;
+                this.internalConfig.Settings["multiple"] = value;
             }
         }
     }

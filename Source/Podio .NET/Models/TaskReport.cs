@@ -14,21 +14,21 @@ namespace PodioAPI.Models
     public class TaskType
     {
         [JsonProperty("completed_yesterday")]
-        public int CompletedYesterday { get; set; }
+        public long CompletedYesterday { get; set; }
 
         [JsonProperty("upcoming")]
-        public int Upcoming { get; set; }
+        public long Upcoming { get; set; }
 
         [JsonProperty("later")]
-        public int Later { get; set; }
+        public long Later { get; set; }
 
         [JsonProperty("tomorrow")]
-        public int Tomorrow { get; set; }
+        public long Tomorrow { get; set; }
 
         [JsonProperty("today")]
-        public int Today { get; set; }
+        public long Today { get; set; }
 
         [JsonProperty("overdue")]
-        public int Overdue { get; set; }
+        public long Overdue { get; set; }
     }
 }

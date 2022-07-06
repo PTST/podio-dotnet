@@ -7,7 +7,7 @@ namespace PodioAPI.Models
     public class ItemDiff
     {
         [JsonProperty("field_id")]
-        public int? FieldId { get; set; }
+        public long? FieldId { get; set; }
 
         [JsonProperty("external_id")]
         public string ExternalId { get; set; }

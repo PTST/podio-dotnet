@@ -10,7 +10,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DocumentationFile>bin\Release\Podio.NET.xml</DocumentationFile>
-	<Version>0.1.0</Version>
+	<Version>0.1.1</Version>
   </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>

@@ -6,7 +6,7 @@ namespace PodioAPI.Models
     public class OrganizationContactTotal
     {
         [JsonProperty("count")]
-        public int Count { get; set; }
+        public long Count { get; set; }
 
         [JsonProperty("org")]
         public OrganizationMicro Org { get; set; }

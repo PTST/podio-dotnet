@@ -7,7 +7,7 @@ namespace PodioAPI.Models
     public class Embed
     {
         [JsonProperty("embed_id")]
-        public int EmbedId { get; set; }
+        public long EmbedId { get; set; }
 
         [JsonProperty("original_url")]
         public string OriginalUrl { get; set; }
@@ -34,10 +34,10 @@ namespace PodioAPI.Models
         public string EmbedHtml { get; set; }
 
         [JsonProperty("embed_height")]
-        public int? EmbedHeight { get; set; }
+        public long? EmbedHeight { get; set; }
 
         [JsonProperty("embed_width")]
-        public int? EmbedWidth { get; set; }
+        public long? EmbedWidth { get; set; }
 
         [JsonProperty("files")]
         public List<FileAttachment> Files { get; set; }

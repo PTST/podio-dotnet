@@ -8,6 +8,6 @@ namespace PodioAPI.Models.Request
         ///     The id of the view to use, 0 means last used view, blank means no view
         /// </summary>
         [JsonProperty("view_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? ViewId { get; set; }
+        public long? ViewId { get; set; }
     }
 }

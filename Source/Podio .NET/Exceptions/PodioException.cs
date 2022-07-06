@@ -20,9 +20,9 @@ namespace PodioAPI.Exceptions
         /// <summary>
         ///   HTTP Status code of the response
         /// </summary>
-        public int StatusCode { get; internal set; }
+        public long StatusCode { get; internal set; }
 
-        public PodioException(int statusCode, PodioError error) : base(JSONSerializer.Serilaize(error))
+        public PodioException(long statusCode, PodioError error) : base(JSONSerializer.Serilaize(error))
         {
             this.Error = error;
             this.StatusCode = statusCode;
@@ -42,7 +42,7 @@ namespace PodioAPI.Exceptions
 #endif
     public class PodioInvalidGrantException : PodioException
     {
-        public PodioInvalidGrantException(int status, PodioError error)
+        public PodioInvalidGrantException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -60,7 +60,7 @@ namespace PodioAPI.Exceptions
 #endif
     public class PodioBadRequestException : PodioException
     {
-        public PodioBadRequestException(int status, PodioError error)
+        public PodioBadRequestException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -79,7 +79,7 @@ namespace PodioAPI.Exceptions
 #endif
     public class PodioAuthorizationException : PodioException
     {
-        public PodioAuthorizationException(int status, PodioError error)
+        public PodioAuthorizationException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -96,7 +96,7 @@ namespace PodioAPI.Exceptions
 #endif
     public class PodioForbiddenException : PodioException
     {
-        public PodioForbiddenException(int status, PodioError error)
+        public PodioForbiddenException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -113,7 +113,7 @@ namespace PodioAPI.Exceptions
 #endif
     public class PodioNotFoundException : PodioException
     {
-        public PodioNotFoundException(int status, PodioError error)
+        public PodioNotFoundException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -130,7 +130,7 @@ namespace PodioAPI.Exceptions
 #endif
     public class PodioConflictException : PodioException
     {
-        public PodioConflictException(int status, PodioError error)
+        public PodioConflictException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -147,7 +147,7 @@ namespace PodioAPI.Exceptions
 #endif
     public class PodioGoneException : PodioException
     {
-        public PodioGoneException(int status, PodioError error)
+        public PodioGoneException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -164,7 +164,7 @@ namespace PodioAPI.Exceptions
 #endif
     public class PodioRateLimitException : PodioException
     {
-        public PodioRateLimitException(int status, PodioError error)
+        public PodioRateLimitException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -181,7 +181,7 @@ namespace PodioAPI.Exceptions
 #endif
     public class PodioServerException : PodioException
     {
-        public PodioServerException(int status, PodioError error)
+        public PodioServerException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -196,7 +196,7 @@ namespace PodioAPI.Exceptions
 
     public class PodioUnavailableException : PodioException
     {
-        public PodioUnavailableException(int status, PodioError error)
+        public PodioUnavailableException(long status, PodioError error)
             : base(status, error)
         {
         }
@@ -209,7 +209,7 @@ namespace PodioAPI.Exceptions
     }
     public class PodioInvalidJsonException : PodioException
     {
-        public PodioInvalidJsonException(int status, PodioError error)
+        public PodioInvalidJsonException(long status, PodioError error)
             : base(status, error)
         {
         }

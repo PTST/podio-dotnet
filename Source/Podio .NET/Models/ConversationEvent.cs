@@ -7,7 +7,7 @@ namespace PodioAPI.Models
     public class ConversationEvent
     {
         [JsonProperty("event_id")]
-        public int EventId { get; set; }
+        public long EventId { get; set; }
 
         [JsonProperty("created_on")]
         public DateTime? CreatedOn { get; set; }

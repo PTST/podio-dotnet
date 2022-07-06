@@ -19,7 +19,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <returns></returns>
-        public async Task<Recurrence> GetRecurrence(string refType, int refId)
+        public async Task<Recurrence> GetRecurrence(string refType, long refId)
         {
             string url = string.Format("/recurrence/{0}/{1}", refType, refId);
             return  await _podio.Get<Recurrence>(url);
@@ -31,7 +31,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="refType"></param>
         /// <param name="refId"></param>
-        public async Task<dynamic> DeleteRecurrence(string refType, int refId)
+        public async Task<dynamic> DeleteRecurrence(string refType, long refId)
         {
             string url = string.Format("/recurrence/{0}/{1}", refType, refId);
             return await _podio.Delete<dynamic>(url);
@@ -44,7 +44,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <param name="recurrence"></param>
-        public async Task<dynamic> UpdateRecurrence(string refType, int refId, Recurrence recurrence)
+        public async Task<dynamic> UpdateRecurrence(string refType, long refId, Recurrence recurrence)
         {
             string url = string.Format("/recurrence/{0}/{1}", refType, refId);
             return await _podio.Put<dynamic>(url, recurrence);

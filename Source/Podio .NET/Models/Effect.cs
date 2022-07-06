@@ -11,7 +11,7 @@ namespace PodioAPI
         public String Type { get; set; }
 
         [JsonProperty("effect_id")]
-        public int EffectId { get; set; }
+        public long EffectId { get; set; }
 
         [JsonProperty("attributes")]
         public List<FlowAttribute> Attributes { get; set; }

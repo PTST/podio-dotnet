@@ -9,18 +9,18 @@ namespace PodioAPI.Models
     public class ApplicationField
     {
         [JsonProperty("field_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? FieldId { get; set; }
+        public long? FieldId { get; set; }
 
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
 
         public string Label
         {
-            get { return this.InternalConfig.Label; }
+            get { return this.internalConfig.Label; }
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Label = value;
+                this.internalConfig.Label = value;
             }
         }
 
@@ -28,7 +28,7 @@ namespace PodioAPI.Models
         public string ExternalId { get; internal set; }
 
         [JsonProperty("config", NullValueHandling = NullValueHandling.Ignore)]
-        public FieldConfig InternalConfig { get; internal set; }
+        public FieldConfig internalConfig { get; internal set; }
 
         public FieldConfig Config
         {
@@ -41,9 +41,9 @@ namespace PodioAPI.Models
 
         internal JToken GetSetting(string key)
         {
-            if (this.InternalConfig.Settings != null)
+            if (this.internalConfig.Settings != null)
             {
-                return InternalConfig.Settings[key];
+                return internalConfig.Settings[key];
             }
 
             return null;
@@ -64,14 +64,14 @@ namespace PodioAPI.Models
         {
             FieldConfig config = null;
 
-            if (this.InternalConfig == null)
-                this.InternalConfig = config = new FieldConfig();
+            if (this.internalConfig == null)
+                this.internalConfig = config = new FieldConfig();
             else
-                config = this.InternalConfig;
+                config = this.internalConfig;
 
 
-            if (this.InternalConfig.Settings == null)
-                this.InternalConfig.Settings = new JObject();
+            if (this.internalConfig.Settings == null)
+                this.internalConfig.Settings = new JObject();
 
             return config;
         }

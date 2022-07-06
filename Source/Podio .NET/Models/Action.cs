@@ -8,7 +8,7 @@ namespace PodioAPI.Models
     public class Action
     {
         [JsonProperty("action_id")]
-        public int? ActionId { get; set; }
+        public long? ActionId { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
@@ -53,6 +53,6 @@ namespace PodioAPI.Models
         public bool Subscribed { get; set; }
 
         [JsonProperty("subscribed_count")]
-        public int SubscribedCount { get; set; }
+        public long SubscribedCount { get; set; }
     }
 }

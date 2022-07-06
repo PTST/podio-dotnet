@@ -5,7 +5,7 @@ namespace PodioAPI.Models
     public class Presence
     {
         [JsonProperty("ref_id")]
-        public int? RefId { get; set; }
+        public long? RefId { get; set; }
 
         [JsonProperty("ref_type")]
         public string RefType { get; set; }
@@ -14,6 +14,6 @@ namespace PodioAPI.Models
         public string Signature { get; set; }
 
         [JsonProperty("user_id")]
-        public int? UserId { get; set; }
+        public long? UserId { get; set; }
     }
 }

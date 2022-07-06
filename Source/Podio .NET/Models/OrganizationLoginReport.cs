@@ -15,12 +15,12 @@ namespace PodioAPI.Models
         ///     The total number of users in the organization.
         /// </summary>
         [JsonProperty("total")]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         /// <summary>
         ///     The total number of users that logged in during the week.
         /// </summary>
         [JsonProperty("active")]
-        public int ActiveUser { get; set; }
+        public long ActiveUser { get; set; }
     }
 }

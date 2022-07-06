@@ -8,7 +8,7 @@ namespace PodioAPI.Models.Request
         ///     The id of the field in the app
         /// </summary>
         [JsonProperty("field_id")]
-        public int FieldId { get; set; }
+        public long FieldId { get; set; }
 
         /// <summary>
         ///     True of the values for the field is unique, false otherwise

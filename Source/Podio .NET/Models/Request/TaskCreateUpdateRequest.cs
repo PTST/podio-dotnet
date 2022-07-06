@@ -34,7 +34,7 @@ namespace PodioAPI.Models.Request
             {
                 if (value.HasValue)
                 {
-                    DueTimeInternal = value.Value.Date.ToString("yyyy-MM-dd");
+                    DueTimeinternal = value.Value.Date.ToString("yyyy-MM-dd");
                     if (value.Value.TimeOfDay != default(TimeSpan))
                     {
                         this.DueTime = value.Value.ToString("HH':'mm");
@@ -44,7 +44,7 @@ namespace PodioAPI.Models.Request
         }
 
         [JsonProperty("due_date", NullValueHandling = NullValueHandling.Ignore)]
-        private string DueTimeInternal { get; set; }
+        private string DueTimeinternal { get; set; }
 
         [JsonProperty("due_time", NullValueHandling = NullValueHandling.Ignore)]
         private string DueTime { get; set; }
@@ -63,7 +63,7 @@ namespace PodioAPI.Models.Request
         ///     The list of files to attach to this task
         /// </summary>
         [JsonProperty("file_ids", NullValueHandling = NullValueHandling.Ignore)]
-        public IEnumerable<int> FileIds { get; set; }
+        public IEnumerable<long> FileIds { get; set; }
 
         /// <summary>
         ///     The list of labels in text form
@@ -75,7 +75,7 @@ namespace PodioAPI.Models.Request
         ///     The list labels in id form
         /// </summary>
         [JsonProperty("label_ids", NullValueHandling = NullValueHandling.Ignore)]
-        public IEnumerable<int> LabelIds { get; set; }
+        public IEnumerable<long> LabelIds { get; set; }
 
         /// <summary>
         ///     Optional reminder on this task
@@ -105,14 +105,14 @@ namespace PodioAPI.Models.Request
         ///     The reference id for the task. Only for task update operation
         /// </summary>
         [JsonProperty("ref_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Id { get; set; }
+        public long? Id { get; set; }
 
-        public void SetResponsible(IEnumerable<int> userIds)
+        public void SetResponsible(IEnumerable<long> userIds)
         {
             this.Responsible = userIds;
         }
 
-        public void SetResponsible(int userId)
+        public void SetResponsible(long userId)
         {
             this.Responsible = userId;
         }

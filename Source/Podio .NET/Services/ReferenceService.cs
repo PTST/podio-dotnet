@@ -25,11 +25,11 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <returns></returns>
-        public async Task<int> CountUserWithAccess(string refType, int refId)
+        public async Task<long> CountUserWithAccess(string refType, long refId)
         {
             string url = string.Format("/reference/{0}/{1}/accessible_by/count", refType, refId);
             dynamic response =  await _podio.Get<dynamic>(url);
-            return (int) response["count"];
+            return (long) response["count"];
         }
 
         /// <summary>
@@ -43,9 +43,9 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <param name="limit">The maximum number of profiles to return for each access type</param>
-        /// <param name="offset">The offset into the profiles to return</param>
+        /// <param name="offset">The offset longo the profiles to return</param>
         /// <returns></returns>
-        public async Task<List<Contact>> FindUserWithAccess(string refType, int refId, int? limit = null, int? offset = null)
+        public async Task<List<Contact>> FindUserWithAccess(string refType, long refId, long? limit = null, long? offset = null)
         {
             string url = string.Format("/reference/{0}/{1}/accessible_by/", refType, refId);
             var requestData = new Dictionary<string, string>()
@@ -69,7 +69,7 @@ namespace PodioAPI.Services
         /// <param name="contextId">The id of the context to check the reference against.</param>
         /// <param name="contextType">The context type to check the reference against. Currently only supports "app".</param>
         /// <returns></returns>
-        public async Task<Reference> GetReference(string refType, int refId, bool accessorCount = false, int? contextId = null,
+        public async Task<Reference> GetReference(string refType, long refId, bool accessorCount = false, long? contextId = null,
             string contextType = null)
         {
             string url = string.Format("/reference/{0}/{1}", refType, refId);

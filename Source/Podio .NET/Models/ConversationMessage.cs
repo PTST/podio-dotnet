@@ -7,13 +7,13 @@ namespace PodioAPI.Models
     public class ConversationMessage
     {
         [JsonProperty(PropertyName = "message_id")]
-        public int MessageId { get; set; }
+        public long MessageId { get; set; }
 
         [JsonProperty(PropertyName = "embed_id")]
-        public int? EmbedId { get; set; }
+        public long? EmbedId { get; set; }
 
         [JsonProperty(PropertyName = "embed_file_id")]
-        public int? EmbedFileId { get; set; }
+        public long? EmbedFileId { get; set; }
 
         [JsonProperty(PropertyName = "text")]
         public string Text { get; set; }

@@ -23,8 +23,8 @@ namespace PodioAPI.Services
         /// <param name="dateTo">The date to search to</param>
         /// <param name="priority">The minimum priority for the events to return Default value: 1</param>
         /// <returns></returns>
-        public async Task<IEnumerable<CalendarEvent>> GetAppCalendar(int appId, DateTime dateFrom, DateTime dateTo,
-            int? priority = null)
+        public async Task<IEnumerable<CalendarEvent>> GetAppCalendar(long appId, DateTime dateFrom, DateTime dateTo,
+            long? priority = null)
         {
             string url = string.Format("/calendar/app/{0}/", appId);
             var requestData = new Dictionary<string, string>();
@@ -44,7 +44,7 @@ namespace PodioAPI.Services
         /// <param name="dateTo">The date to search to</param>
         /// <param name="priority">The minimum priority for the events to return Default value: 1</param>
         /// <returns></returns>
-        public async Task<IEnumerable<CalendarEvent>> GetGlobalCalendar(DateTime dateFrom, DateTime dateTo, int? priority = null)
+        public async Task<IEnumerable<CalendarEvent>> GetGlobalCalendar(DateTime dateFrom, DateTime dateTo, long? priority = null)
         {
             string url = "/calendar/";
             var requestData = new Dictionary<string, string>();
@@ -57,7 +57,7 @@ namespace PodioAPI.Services
         }
 
         /// <summary>
-        ///     Returns the app calendar in the iCal format 90 days into the future. The CalendarCode / Token can retrieved by
+        ///     Returns the app calendar in the iCal format 90 days longo the future. The CalendarCode / Token can retrieved by
         ///     getting the user status.
         ///     <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-app-calendar-as-ical-22515 </para>
         /// </summary>
@@ -65,21 +65,21 @@ namespace PodioAPI.Services
         /// <param name="userId"></param>
         /// <param name="token"></param>
         /// <returns></returns>
-        public async Task<StringResponse> GetAppCalendarAsiCal(int appId, int userId, string token)
+        public async Task<StringResponse> GetAppCalendarAsiCal(long appId, long userId, string token)
         {
             string url = string.Format("/calendar/app/{0}/ics/{1}/{2}/", appId, userId, token);
             return await _podio.Get<StringResponse>(url: url, returnAsString: true);
         }
 
         /// <summary>
-        ///     Returns the users global calendar in the iCal format 90 days into the future. The CalendarCode / Token can
+        ///     Returns the users global calendar in the iCal format 90 days longo the future. The CalendarCode / Token can
         ///     retrieved by getting the user status.
         ///     <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-global-calendar-as-ical-22513 </para>
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="token"></param>
         /// <returns></returns>
-        public async Task<StringResponse> GetGlobalCalendarAsiCal(int userId, string token)
+        public async Task<StringResponse> GetGlobalCalendarAsiCal(long userId, string token)
         {
             string url = string.Format("/calendar/ics/{0}/{1}/", userId, token);
             return await _podio.Get<StringResponse>(url: url, returnAsString: true);
@@ -95,8 +95,8 @@ namespace PodioAPI.Services
         /// <param name="dateTo">The date to search to</param>
         /// <param name="priority">The minimum priority for the events to return Default value: 1</param>
         /// <returns></returns>
-        public async Task<IEnumerable<CalendarEvent>> GetSpaceCalendar(int spaceId, DateTime dateFrom, DateTime dateTo,
-            int? priority = null)
+        public async Task<IEnumerable<CalendarEvent>> GetSpaceCalendar(long spaceId, DateTime dateFrom, DateTime dateTo,
+            long? priority = null)
         {
             string url = string.Format("/calendar/space/{0}/", spaceId);
             var requestData = new Dictionary<string, string>();
@@ -109,7 +109,7 @@ namespace PodioAPI.Services
         }
 
         /// <summary>
-        ///     Returns the space calendar in the iCal format 90 days into the future. The CalendarCode / Token can retrieved by
+        ///     Returns the space calendar in the iCal format 90 days longo the future. The CalendarCode / Token can retrieved by
         ///     getting the user status.
         ///     <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-space-calendar-as-ical-22514 </para>
         /// </summary>
@@ -117,7 +117,7 @@ namespace PodioAPI.Services
         /// <param name="userId"></param>
         /// <param name="token"></param>
         /// <returns></returns>
-        public async Task<StringResponse> GetSpaceCalendarAsiCal(int spaceId, int userId, string token)
+        public async Task<StringResponse> GetSpaceCalendarAsiCal(long spaceId, long userId, string token)
         {
             string url = string.Format("/calendar/space/{0}/ics/{1}/{2}/", spaceId, userId, token);
             var options = new Dictionary<string, bool>()
@@ -136,7 +136,7 @@ namespace PodioAPI.Services
         /// <param name="userId"></param>
         /// <param name="token"></param>
         /// <returns></returns>
-        public async Task<StringResponse> GetTaskCalendarAsiCal(int taskId)
+        public async Task<StringResponse> GetTaskCalendarAsiCal(long taskId)
         {
             string url = string.Format("/calendar/task/{0}/ics/", taskId);
             return await _podio.Get<StringResponse>(url: url, returnAsString: true);
@@ -149,7 +149,7 @@ namespace PodioAPI.Services
         /// <param name="limit">The maximum number of events to return in each group Default value: 5</param>
         /// <param name="priority">The minimum priority for the events to return Default value: 1</param>
         /// <returns></returns>
-        public async Task<CalendarSummary> GetCalendarSummary(int limit = 5, int priority = 1)
+        public async Task<CalendarSummary> GetCalendarSummary(long limit = 5, long priority = 1)
         {
             string url = "/calendar/summary";
             var requestData = new Dictionary<string, string>
@@ -168,7 +168,7 @@ namespace PodioAPI.Services
         /// <param name="limit">The maximum number of events to return in each group Default value: 5</param>
         /// <param name="priority">The minimum priority for the events to return Default value: 1</param>
         /// <returns></returns>
-        public async Task<CalendarSummary> GetCalendarSummaryForPersonal(int limit = 5, int priority = 1)
+        public async Task<CalendarSummary> GetCalendarSummaryForPersonal(long limit = 5, long priority = 1)
         {
             string url = "/calendar/personal/summary";
             var requestData = new Dictionary<string, string>
@@ -188,7 +188,7 @@ namespace PodioAPI.Services
         /// <param name="limit">The maximum number of events to return in each group Default value: 5</param>
         /// <param name="priority">The minimum priority for the events to return Default value: 1</param>
         /// <returns></returns>
-        public async Task<CalendarSummary> GetCalendarSummaryForSpace(int spaceId, int limit = 5, int priority = 1)
+        public async Task<CalendarSummary> GetCalendarSummaryForSpace(long spaceId, long limit = 5, long priority = 1)
         {
             string url = string.Format("/calendar/space/{0}/summary", spaceId);
             var requestData = new Dictionary<string, string>
@@ -207,7 +207,7 @@ namespace PodioAPI.Services
         /// <param name="uid"></param>
         /// <param name="startDateTime"></param>
         /// <param name="endDateTime"></param>
-        public async Task<dynamic> UpdateCalendarEvent(int uid, DateTime startDateTime, DateTime endDateTime)
+        public async Task<dynamic> UpdateCalendarEvent(long uid, DateTime startDateTime, DateTime endDateTime)
         {
             string url = string.Format("/calendar/event/{0}", uid);
             dynamic requestData = new

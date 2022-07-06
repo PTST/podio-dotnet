@@ -8,7 +8,7 @@ namespace PodioAPI.Models
     public class AppMarketShare
     {
         [JsonProperty("share_id")]
-        public int? ShareId { get; set; }
+        public long? ShareId { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }
@@ -31,8 +31,8 @@ namespace PodioAPI.Models
         [JsonProperty("features")]
         public String[] Features { get; set; }
 
-        [JsonProperty("integration")]
-        public string Integration { get; set; }
+        [JsonProperty("longegration")]
+        public string longegration { get; set; }
 
         [JsonProperty("categories")]
         public JObject Categories { get; set; }
@@ -41,16 +41,16 @@ namespace PodioAPI.Models
         public JObject Org { get; set; }
 
         [JsonProperty("author_apps")]
-        public int? AuthorApps { get; set; }
+        public long? AuthorApps { get; set; }
 
         [JsonProperty("author_packs")]
-        public int? AuthorPacks { get; set; }
+        public long? AuthorPacks { get; set; }
 
         [JsonProperty("icon")]
         public string Icon { get; set; }
 
         [JsonProperty("icon_id")]
-        public int? IconId { get; set; }
+        public long? IconId { get; set; }
 
         [JsonProperty("ratings")]
         public JObject Ratings { get; set; }

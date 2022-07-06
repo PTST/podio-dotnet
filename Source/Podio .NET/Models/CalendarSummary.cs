@@ -15,7 +15,7 @@ namespace PodioAPI.Models
     public class CalendarSummaryGroup
     {
         [JsonProperty("total")]
-        public int Total { get; set; }
+        public long Total { get; set; }
 
         [JsonProperty("events")]
         public IEnumerable<CalendarEvent> Events { get; set; }

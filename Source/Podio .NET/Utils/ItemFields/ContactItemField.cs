@@ -16,7 +16,7 @@ namespace PodioAPI.Utils.ItemFields
         /// <summary>
         ///     The profile_id's of the contacts
         /// </summary>
-        public IEnumerable<int> ContactIds
+        public IEnumerable<long> ContactIds
         {
             set
             {
@@ -47,7 +47,7 @@ namespace PodioAPI.Utils.ItemFields
             }
         }
 
-        public int ContactId
+        public long ContactId
         {
             set
             {
@@ -84,6 +84,6 @@ namespace PodioAPI.Utils.ItemFields
         /// The profile_id of the contact
         /// </summary>
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
     }
 }

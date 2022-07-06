@@ -10,13 +10,13 @@ namespace PodioAPI.Models.Request
         ///     An explicit list of item ids to be deleted
         /// </summary>
         [JsonProperty(PropertyName = "item_ids", NullValueHandling = NullValueHandling.Ignore)]
-        public List<int> ItemIds { get; set; }
+        public List<long> ItemIds { get; set; }
 
         /// <summary>
         ///     The id of the saved view whose items are to be deleted. Ignored if "item_ids" is given.
         /// </summary>
         [JsonProperty(PropertyName = "view_id", NullValueHandling = NullValueHandling.Ignore)]
-        public List<int> ViewId { get; set; }
+        public List<long> ViewId { get; set; }
 
         /// <summary>
         ///     The filters to apply. Ignored if "item_ids" is given

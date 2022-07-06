@@ -2,7 +2,7 @@
 
 namespace PodioAPI.Models
 {
-    public class IntegrationAvailableAppField
+    public class longegrationAvailableAppField
     {
         [JsonProperty("external_id")]
         public string ExternalId { get; set; }

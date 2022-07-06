@@ -7,7 +7,7 @@ namespace PodioAPI.Models
     public class Status
     {
         [JsonProperty("status_id")]
-        public int StatusId { get; set; }
+        public long StatusId { get; set; }
 
         [JsonProperty("value")]
         public string Value { get; set; }

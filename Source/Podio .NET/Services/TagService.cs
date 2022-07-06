@@ -22,7 +22,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <param name="tags"></param>
-        public async Task<dynamic> CreateTags(string refType, int refId, List<string> tags)
+        public async Task<dynamic> CreateTags(string refType, long refId, List<string> tags)
         {
             string url = string.Format("/tag/{0}/{1}/", refType, refId);
             return  await _podio.Post<dynamic>(url, tags);
@@ -36,7 +36,7 @@ namespace PodioAPI.Services
         /// <param name="appId"></param>
         /// <param name="text">The tag to search for.</param>
         /// <returns></returns>
-        public async Task<List<TaggedObject>> GetObjectsOnAppWithTag(int appId, string text)
+        public async Task<List<TaggedObject>> GetObjectsOnAppWithTag(long appId, string text)
         {
             string url = string.Format("/tag/app/{0}/search/", appId);
             var requestData = new Dictionary<string, string>()
@@ -54,7 +54,7 @@ namespace PodioAPI.Services
         /// <param name="orgId"></param>
         /// <param name="text"></param>
         /// <returns></returns>
-        public async Task<List<TaggedObject>> GetObjectsOnOrganizationWithTag(int orgId, string text)
+        public async Task<List<TaggedObject>> GetObjectsOnOrganizationWithTag(long orgId, string text)
         {
             string url = string.Format("/tag/org/{0}/search/", orgId);
             var requestData = new Dictionary<string, string>()
@@ -72,7 +72,7 @@ namespace PodioAPI.Services
         /// <param name="spaceId"></param>
         /// <param name="text"></param>
         /// <returns></returns>
-        public async Task<List<TaggedObject>> GetObjectsOnSpaceWithTag(int spaceId, string text)
+        public async Task<List<TaggedObject>> GetObjectsOnSpaceWithTag(long spaceId, string text)
         {
             string url = string.Format("/tag/space/{0}/search/", spaceId);
             var requestData = new Dictionary<string, string>()
@@ -91,7 +91,7 @@ namespace PodioAPI.Services
         /// <param name="limit">The maximum number of tags to return.</param>
         /// <param name="text">The tag to search for.</param>
         /// <returns></returns>
-        public async Task<List<Tag>> GetTagsOnApp(int appId, int? limit = null, string text = null)
+        public async Task<List<Tag>> GetTagsOnApp(long appId, long? limit = null, string text = null)
         {
             string url = string.Format("/tag/app/{0}/", appId);
             var requestData = new Dictionary<string, string>()
@@ -110,7 +110,7 @@ namespace PodioAPI.Services
         /// <param name="limit">The maximum number of tags to return</param>
         /// <param name="text">The tag to search for</param>
         /// <returns></returns>
-        public async Task<List<string>> GetTagsOnAppTop(int appId, int? limit = null, string text = null)
+        public async Task<List<string>> GetTagsOnAppTop(long appId, long? limit = null, string text = null)
         {
             string url = string.Format("/tag/app/{0}/top/", appId);
             var requestData = new Dictionary<string, string>()
@@ -131,7 +131,7 @@ namespace PodioAPI.Services
         /// <param name="limit">The maximum number of tags to return</param>
         /// <param name="text">The tag to search for</param>
         /// <returns></returns>
-        public async Task<List<Tag>> GetTagsOnOrganization(int orgId, int? limit = null, string text = null)
+        public async Task<List<Tag>> GetTagsOnOrganization(long orgId, long? limit = null, string text = null)
         {
             string url = string.Format("/tag/org/{0}/", orgId);
             var requestData = new Dictionary<string, string>()
@@ -151,7 +151,7 @@ namespace PodioAPI.Services
         /// <param name="limit">The maximum number of tags to return</param>
         /// <param name="text">The tag to search for</param>
         /// <returns></returns>
-        public async Task<List<Tag>> GetTagsOnSpace(int spaceId, int? limit = null, string text = null)
+        public async Task<List<Tag>> GetTagsOnSpace(long spaceId, long? limit = null, string text = null)
         {
             string url = string.Format("/tag/space/{0}/", spaceId);
             var requestData = new Dictionary<string, string>()
@@ -169,7 +169,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <param name="text">The tag to search for</param>
-        public async Task<dynamic> RemoveTag(string refType, int refId, string text)
+        public async Task<dynamic> RemoveTag(string refType, long refId, string text)
         {
             string url = string.Format("/tag/{0}/{1}?text={2}", refType, refId, text);
             return await _podio.Delete<dynamic>(url);
@@ -183,7 +183,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <param name="tags"></param>
-        public async Task<dynamic> UpdateTags(string refType, int refId, List<string> tags)
+        public async Task<dynamic> UpdateTags(string refType, long refId, List<string> tags)
         {
             string url = string.Format("/tag/{0}/{1}/", refType, refId);
             return await _podio.Put<dynamic>(url, tags);

@@ -20,11 +20,11 @@ namespace PodioAPI.Services
         ///     <para>Podio API Reference: https://developers.podio.com/doc/notifications/get-inbox-new-count-84610 </para>
         /// </summary>
         /// <returns></returns>
-        public async Task<int> GetInboxNewCount()
+        public async Task<long> GetInboxNewCount()
         {
             string url = "/notification/inbox/new/count";
             dynamic response =  await _podio.Get<dynamic>(url);
-            return (int) response["new"];
+            return (long) response["new"];
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace PodioAPI.Services
         ///     <para>Podio API Reference: https://developers.podio.com/doc/notifications/star-notification-295910 </para>
         /// </summary>
         /// <param name="notificationId"></param>
-        public async Task<dynamic> StarNotification(int notificationId)
+        public async Task<dynamic> StarNotification(long notificationId)
         {
             string url = string.Format("/notification/{0}/star", notificationId);
              return await _podio.Post<dynamic>(url);
@@ -43,7 +43,7 @@ namespace PodioAPI.Services
         ///     <para>Podio API Reference: https://developers.podio.com/doc/notifications/un-star-notification-295911 </para>
         /// </summary>
         /// <param name="notificationId"></param>
-        public async Task<dynamic> UnStarNotification(int notificationId)
+        public async Task<dynamic> UnStarNotification(long notificationId)
         {
             string url = string.Format("/notification/{0}/star", notificationId);
              return await _podio.Delete<dynamic>(url);
@@ -58,7 +58,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="refType"></param>
         /// <param name="refId"></param>
-        public async Task<dynamic> MarkNotificationsAsViewedByRef(string refType, int refId)
+        public async Task<dynamic> MarkNotificationsAsViewedByRef(string refType, long refId)
         {
             string url = string.Format("/notification/{0}/{1}/viewed", refType, refId);
              return await _podio.Post<dynamic>(url);
@@ -69,7 +69,7 @@ namespace PodioAPI.Services
         ///     <para>Podio API Reference: https://developers.podio.com/doc/notifications/mark-notification-as-viewed-22436 </para>
         /// </summary>
         /// <param name="notificationId"></param>
-        public async Task<dynamic> MarkNotificationAsViewed(int notificationId)
+        public async Task<dynamic> MarkNotificationAsViewed(long notificationId)
         {
             string url = string.Format("/notification/{0}/viewed", notificationId);
              return await _podio.Post<dynamic>(url);
@@ -91,7 +91,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="notificationId"></param>
         /// <returns></returns>
-        public async Task<Notifications> GetNotification(int notificationId)
+        public async Task<Notifications> GetNotification(long notificationId)
         {
             string url = string.Format("/notification/{0}", notificationId);
             return  await _podio.Get<Notifications>(url);
@@ -110,7 +110,7 @@ namespace PodioAPI.Services
         ///     value: incoming
         /// </param>
         /// <param name="limit">The maximum number of notifications to return, maxium is "100". Default value: 20</param>
-        /// <param name="offSet">The offet into the returned notifications. Default value: 0</param>
+        /// <param name="offSet">The offet longo the returned notifications. Default value: 0</param>
         /// <param name="starred">
         ///     False to get only unstarred notifications, true to get only starred notifications, leave blank
         ///     for both
@@ -128,8 +128,8 @@ namespace PodioAPI.Services
         /// </param>
         /// <returns></returns>
         public async Task<List<Notifications>> GetNotifications(string contextType = null, DateTime? createdFrom = null,
-            DateTime? createdTo = null, string direction = "incoming", int limit = 20, int offSet = 0,
-            bool? starred = null, string type = null, int? userId = null, bool? viewed = null,
+            DateTime? createdTo = null, string direction = "incoming", long limit = 20, long offSet = 0,
+            bool? starred = null, string type = null, long? userId = null, bool? viewed = null,
             DateTime? viewedFrom = null)
         {
             string url = "/notification/";

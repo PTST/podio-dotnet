@@ -6,7 +6,7 @@ namespace PodioAPI.Models
     public class Batch
     {
         [JsonProperty("batch_id")]
-        public int? BatchId { get; set; }
+        public long? BatchId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -18,13 +18,13 @@ namespace PodioAPI.Models
         public string Status { get; set; }
 
         [JsonProperty("completed")]
-        public int? Completed { get; set; }
+        public long? Completed { get; set; }
 
         [JsonProperty("skipped")]
-        public int? Skipped { get; set; }
+        public long? Skipped { get; set; }
 
         [JsonProperty("failed")]
-        public int? Failed { get; set; }
+        public long? Failed { get; set; }
 
         [JsonProperty("created_on")]
         public DateTime? CreatedOn { get; set; }

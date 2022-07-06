@@ -24,7 +24,7 @@ namespace PodioAPI.Services
         /// <param name="postOnNewApp">True if new apps should be announced with a status update, false otherwise</param>
         /// <param name="postOnNewMember">True if new members should be announced with a status update, false otherwise</param>
         /// <returns></returns>
-        public async Task<int> CreateSpace(int orgId, string name, string privacy = null, bool? autoJoin = null,
+        public async Task<long> CreateSpace(long orgId, string name, string privacy = null, bool? autoJoin = null,
             bool? postOnNewApp = null, bool? postOnNewMember = null)
         {
             string url = "/space/";
@@ -38,7 +38,7 @@ namespace PodioAPI.Services
                 post_on_new_member = postOnNewMember
             };
             dynamic respone =  await _podio.Post<dynamic>(url, requestData);
-            return (int) respone["space_id"];
+            return (long) respone["space_id"];
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace PodioAPI.Services
         /// <param name="autoJoin">True if new employees should be joined automatically, false otherwise, defaults to false</param>
         /// <param name="postOnNewApp">True if new apps should be announced with a status update, false otherwise</param>
         /// <param name="postOnNewMember">True if new members should be announced with a status update, false otherwise</param>
-        public async Task<dynamic> UpdateSpace(int spaceId, string name = null, string urlLabel = null, string privacy = null,
+        public async Task<dynamic> UpdateSpace(long spaceId, string name = null, string urlLabel = null, string privacy = null,
             bool? autoJoin = null, bool? postOnNewApp = null, bool? postOnNewMember = null)
         {
             string url = string.Format("/space/{0}", spaceId);
@@ -74,7 +74,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="orgId"></param>
         /// <returns></returns>
-        public async Task<List<SpaceMicro>> GetOrganizationSpaces(int orgId)
+        public async Task<List<SpaceMicro>> GetOrganizationSpaces(long orgId)
         {
             string url = string.Format("/space/org/{0}/", orgId);
             return  await _podio.Get<List<SpaceMicro>>(url);
@@ -87,7 +87,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="orgId"></param>
         /// <returns></returns>
-        public async Task<List<SpaceMicro>> GetAvailableSpaces(int orgId)
+        public async Task<List<SpaceMicro>> GetAvailableSpaces(long orgId)
         {
             string url = string.Format("/space/org/{0}/available/", orgId);
             return  await _podio.Get<List<SpaceMicro>>(url);
@@ -99,7 +99,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="spaceId"></param>
         /// <returns></returns>
-        public async Task<Seat> GetAvailableSeats(int spaceId)
+        public async Task<Seat> GetAvailableSeats(long spaceId)
         {
             string url = string.Format("/space/{0}/available", spaceId);
             return  await _podio.Get<Seat>(url);
@@ -111,7 +111,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="spaceId"></param>
         /// <returns></returns>
-        public async Task<Space> GetSpace(int spaceId)
+        public async Task<Space> GetSpace(long spaceId)
         {
             string url = string.Format("/space/{0}", spaceId);
             return  await _podio.Get<Space>(url);
@@ -124,7 +124,7 @@ namespace PodioAPI.Services
         /// <param name="orgId"></param>
         /// <param name="urlLabel"></param>
         /// <returns></returns>
-        public async Task<Space> GetSpaceByOrgAndUrlLabel(int orgId, string urlLabel)
+        public async Task<Space> GetSpaceByOrgAndUrlLabel(long orgId, string urlLabel)
         {
             string url = string.Format("/space/org/{0}/{1}", orgId, urlLabel);
             return  await _podio.Get<Space>(url);
@@ -159,7 +159,7 @@ namespace PodioAPI.Services
         /// </summary>
         /// <param name="limit"></param>
         /// <returns></returns>
-        public async Task<List<Space>> GetTopSpaces(int limit = 6)
+        public async Task<List<Space>> GetTopSpaces(long limit = 6)
         {
             string url = "/space/top/";
             var requestData = new Dictionary<string, string>()

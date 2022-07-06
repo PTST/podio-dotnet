@@ -5,7 +5,7 @@ namespace PodioAPI.Models
     public class OrganizationMicro
     {
         [JsonProperty("org_id")]
-        public int OrgId { get; set; }
+        public long OrgId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }

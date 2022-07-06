@@ -8,13 +8,13 @@ namespace PodioAPI.Models.Request
         ///     The maximum number of items to return, defaults to 30
         /// </summary>
         [JsonProperty("limit", NullValueHandling = NullValueHandling.Ignore)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
-        ///     The offset into the returned items, defaults to 0
+        ///     The offset longo the returned items, defaults to 0
         /// </summary>
         [JsonProperty("offset", NullValueHandling = NullValueHandling.Ignore)]
-        public int Offset { get; set; }
+        public long Offset { get; set; }
 
         /// <summary>
         ///     True if the view should be remembered, false otherwise

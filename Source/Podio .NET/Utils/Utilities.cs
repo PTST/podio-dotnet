@@ -10,7 +10,7 @@ namespace PodioAPI.Utils
 {
     internal class Utility
     {
-        internal static string ArrayToCSV(int[] array, string splitter = ",")
+        internal static string ArrayToCSV(long[] array, string splitter = ",")
         {
             if (array != null && array.Length > 0)
                 return string.Join(splitter, array);
@@ -78,7 +78,7 @@ namespace PodioAPI.Utils
         {
             var clone = new HttpRequestMessage(request.Method, request.RequestUri);
 
-            // Copy the request's content (via a MemoryStream) into the cloned object
+            // Copy the request's content (via a MemoryStream) longo the cloned object
             var ms = new MemoryStream();
             if (request.Content != null)
             {
@@ -106,7 +106,7 @@ namespace PodioAPI.Utils
 
         public static async Task<HttpRequestMessage> CopyHttpRequestMessageContent(HttpRequestMessage originalRequest, HttpRequestMessage copy)
         {
-            // Copy the request's content (via a MemoryStream) into the cloned object
+            // Copy the request's content (via a MemoryStream) longo the cloned object
             var ms = new MemoryStream();
             if (originalRequest.Content != null)
             {

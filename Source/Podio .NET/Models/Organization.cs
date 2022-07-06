@@ -6,7 +6,7 @@ namespace PodioAPI.Models
     public class Organization
     {
         [JsonProperty("org_id")]
-        public int OrgId { get; set; }
+        public long OrgId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -15,7 +15,7 @@ namespace PodioAPI.Models
         public string Type { get; set; }
 
         [JsonProperty("logo")]
-        public int? Logo { get; set; }
+        public long? Logo { get; set; }
 
         [JsonProperty("url")]
         public string Url { get; set; }
@@ -33,7 +33,7 @@ namespace PodioAPI.Models
         public string Status { get; set; }
 
         [JsonProperty("sales_agent_id")]
-        public int SalesAgentId { get; set; }
+        public long SalesAgentId { get; set; }
 
         [JsonProperty("created_on")]
         public string CreatedOn { get; set; }
@@ -45,7 +45,7 @@ namespace PodioAPI.Models
         public string[] Rights { get; set; }
 
         [JsonProperty("rank")]
-        public int? Rank { get; set; }
+        public long? Rank { get; set; }
 
         [JsonProperty("created_by")]
         public ByLine CreatedBy { get; set; }
@@ -57,12 +57,12 @@ namespace PodioAPI.Models
         public List<Space> Spaces { get; set; }
 
         [JsonProperty("grants_count")]
-        public int? GrantsCount { get; set; }
+        public long? GrantsCount { get; set; }
 
         [JsonProperty("segment")]
         public string Segment { get; set; }
 
         [JsonProperty("segment_size")]
-        public int? SegmentSize { get; set; }
+        public long? SegmentSize { get; set; }
     }
 }

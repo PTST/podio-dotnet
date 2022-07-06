@@ -22,7 +22,7 @@ namespace PodioAPI.Utils.ApplicationFields
             set
             {
                 InitializeFieldSettings();
-                this.InternalConfig.Settings["call_link_scheme"] = value;
+                this.internalConfig.Settings["call_link_scheme"] = value;
             }
         }
 

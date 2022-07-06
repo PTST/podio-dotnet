@@ -14,10 +14,10 @@ namespace PodioAPI.Models
         public string UrlLabel { get; set; }
 
         [JsonProperty("space_id")]
-        public int SpaceId { get; set; }
+        public long SpaceId { get; set; }
 
         [JsonProperty("org_id")]
-        public int? OrgId { get; set; }
+        public long? OrgId { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

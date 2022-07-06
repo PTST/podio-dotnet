@@ -22,7 +22,7 @@ namespace PodioAPI.Services
         /// <param name="limit">How many objects should be returned. Default: 10</param>
         /// <param name="offset">How far should the objects be offset</param>
         /// <returns></returns>
-        public async Task<IEnumerable<StreamObject>> GetGlobalStream(int? limit = null, int? offset = null)
+        public async Task<IEnumerable<StreamObject>> GetGlobalStream(long? limit = null, long? offset = null)
         {
             string url = "/stream/";
             var requestData = new Dictionary<string, string>
@@ -42,7 +42,7 @@ namespace PodioAPI.Services
         /// <param name="limit">How many objects should be returned. Default: 10</param>
         /// <param name="offset">How far should the objects be offset</param>
         /// <returns></returns>
-        public async Task<IEnumerable<StreamObject>> GetAppStream(int appId, int? limit = null, int? offset = null)
+        public async Task<IEnumerable<StreamObject>> GetAppStream(long appId, long? limit = null, long? offset = null)
         {
             string url = string.Format("/stream/app/{0}/", appId);
             var requestData = new Dictionary<string, string>
@@ -62,7 +62,7 @@ namespace PodioAPI.Services
         /// <param name="limit">How many objects should be returned. Default: 10</param>
         /// <param name="offset">How far should the objects be offset </param>
         /// <returns></returns>
-        public async Task<IEnumerable<StreamObject>> GetSpaceStream(int spaceId, int? limit = null, int? offset = null)
+        public async Task<IEnumerable<StreamObject>> GetSpaceStream(long spaceId, long? limit = null, long? offset = null)
         {
             string url = string.Format("/stream/space/{0}/", spaceId);
             var requestData = new Dictionary<string, string>
@@ -83,7 +83,7 @@ namespace PodioAPI.Services
         /// <param name="limit">How many objects should be returned. Default: 10</param>
         /// <param name="offset">How far should the objects be offset </param>
         /// <returns></returns>
-        public async Task<IEnumerable<StreamObject>> GetUserStream(int userId, int? limit = null, int? offset = null)
+        public async Task<IEnumerable<StreamObject>> GetUserStream(long userId, long? limit = null, long? offset = null)
         {
             string url = string.Format("/stream/user/{0}/", userId);
             var requestData = new Dictionary<string, string>
@@ -103,7 +103,7 @@ namespace PodioAPI.Services
         /// <param name="limit">How many objects should be returned. Default: 10</param>
         /// <param name="offset">How far should the objects be offset </param>
         /// <returns></returns>
-        public async Task<IEnumerable<StreamObject>> GetOrganizationStream(int orgId, int? limit = null, int? offset = null)
+        public async Task<IEnumerable<StreamObject>> GetOrganizationStream(long orgId, long? limit = null, long? offset = null)
         {
             string url = string.Format("/stream/org/{0}/", orgId);
             var requestData = new Dictionary<string, string>
@@ -122,7 +122,7 @@ namespace PodioAPI.Services
         /// <param name="refType"></param>
         /// <param name="refId"></param>
         /// <returns></returns>
-        public async Task<StreamObject> GetStreamObject(string refType, int refId)
+        public async Task<StreamObject> GetStreamObject(string refType, long refId)
         {
             string url = string.Format("/stream/{0}/{1}", refType, refId);
             return await _podio.Get<StreamObject>(url);
@@ -137,8 +137,8 @@ namespace PodioAPI.Services
         /// <param name="limit">Maximum number of groups returned. Default value: 10</param>
         /// <param name="offset">Index of first returned group. Default value: 0</param>
         /// <returns></returns>
-        public async Task<List<StreamObjectV3>> GetGlobalStreamV3(string[] groupsEventTypes = null, int groupsLimit = 2,
-            int limit = 10, int offset = 0)
+        public async Task<List<StreamObjectV3>> GetGlobalStreamV3(string[] groupsEventTypes = null, long groupsLimit = 2,
+            long limit = 10, long offset = 0)
         {
             string url = "/stream/v3/";
             string groupEventTypesCSV = Utility.ArrayToCSV(groupsEventTypes);
@@ -162,8 +162,8 @@ namespace PodioAPI.Services
         /// <param name="limit">Maximum number of groups returned. Default value: 10</param>
         /// <param name="offset">Index of first returned group. Default value: 0</param>
         /// <returns></returns>
-        public async Task<List<StreamObjectV3>> GetApplicationStreamV3(int appId, string[] groupsEventTypes = null,
-            int groupsLimit = 2, int limit = 10, int offset = 0)
+        public async Task<List<StreamObjectV3>> GetApplicationStreamV3(long appId, string[] groupsEventTypes = null,
+            long groupsLimit = 2, long limit = 10, long offset = 0)
         {
             string url = string.Format("/stream/app/{0}/v3", appId);
             string groupEventTypesCSV = Utility.ArrayToCSV(groupsEventTypes);
@@ -188,8 +188,8 @@ namespace PodioAPI.Services
         /// <param name="offset">Index of first returned group. Default value: 0</param>
         /// >
         /// <returns></returns>
-        public async Task<List<StreamObjectV3>> GetOrgStreamV3(int orgId, string[] groupsEventTypes = null, int groupsLimit = 2,
-            int limit = 10, int offset = 0)
+        public async Task<List<StreamObjectV3>> GetOrgStreamV3(long orgId, string[] groupsEventTypes = null, long groupsLimit = 2,
+            long limit = 10, long offset = 0)
         {
             string url = string.Format("/stream/org/{0}/v3/", orgId);
             string groupEventTypesCSV = Utility.ArrayToCSV(groupsEventTypes);
@@ -211,7 +211,7 @@ namespace PodioAPI.Services
         /// <param name="groupsEventTypes">The types of events to include in the returned activity groups.</param>
         /// <param name="groupsLimit">Default value: 2</param>
         /// <returns></returns>
-        public async Task<List<StreamObjectV3>> GetSpaceStreamV3(int spaceId, string[] groupsEventTypes = null, int groupsLimit = 2)
+        public async Task<List<StreamObjectV3>> GetSpaceStreamV3(long spaceId, string[] groupsEventTypes = null, long groupsLimit = 2)
         {
             string url = string.Format("/stream/space/{0}/v3/", spaceId);
             string groupEventTypesCSV = Utility.ArrayToCSV(groupsEventTypes);
@@ -234,8 +234,8 @@ namespace PodioAPI.Services
         /// <param name="offset">Index of first returned group. Default value: 0</param>
         /// >
         /// <returns></returns>
-        public async Task<List<StreamObjectV3>> GetUserStreamV3(int userId, string[] groupsEventTypes = null, int groupsLimit = 2,
-            int limit = 10, int offset = 0)
+        public async Task<List<StreamObjectV3>> GetUserStreamV3(long userId, string[] groupsEventTypes = null, long groupsLimit = 2,
+            long limit = 10, long offset = 0)
         {
             string url = string.Format("/stream/user/{0}/v3", userId);
             string groupEventTypesCSV = Utility.ArrayToCSV(groupsEventTypes);
@@ -258,8 +258,8 @@ namespace PodioAPI.Services
         /// <param name="groupsEventTypes">The types of events to include in the returned activity groups.</param>
         /// <param name="groupsLimit">Default value: 2</param>
         /// <returns></returns>
-        public async Task<List<StreamObjectV3>> GetStreamObjectV3(string refType, int refId, string[] groupsEventTypes = null,
-            int groupsLimit = 2)
+        public async Task<List<StreamObjectV3>> GetStreamObjectV3(string refType, long refId, string[] groupsEventTypes = null,
+            long groupsLimit = 2)
         {
             string url = string.Format("/stream/{0}/{1}/v3", refType, refId);
             string groupEventTypesCSV = Utility.ArrayToCSV(groupsEventTypes);
